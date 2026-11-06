@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>任務板 · 社區共享平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/board.css">
+<link rel="stylesheet" href="assets/tasks.css">
+</head>
+<body>
+<header class="h-head" id="head"></header>
+<div class="band" id="band"></div>
+<main class="stage" id="stage">
+  <div class="stage-in">
+    <div class="top-row">
+      <div>
+        <h1 class="sign">任務板</h1>
+      </div>
+      <p class="lead">下課、下班回家路上，15 分鐘也能幫上忙。</p>
+    </div>
+    <div class="layout">
+      <section aria-label="社區任務">
+        <div class="filters panel" id="filters"></div>
+        <div class="board">
+          <p class="count" id="count" role="status"></p>
+          <div class="notes" id="notes"></div>
+        </div>
+      </section>
+      <aside class="side">
+        <section class="panel" aria-labelledby="mineTitle">
+          <h2 id="mineTitle" class="hn">我的任務</h2>
+          <div id="mine"></div>
+        </section>
+        <section class="panel" aria-labelledby="cvTitle">
+          <h2 id="cvTitle" class="hn">我的 Impact CV</h2>
+          <div id="cv"></div>
+        </section>
+        <section class="panel rule">
+          <h2 class="hn">任務分級</h2>
+          <ul>
+            <li><span class="pill r-low">低風險</span>閱讀規範後即可接單</li>
+            <li><span class="pill r-mid">中風險</span>需身分驗證與保險生效</li>
+            <li><span class="pill r-high">轉介</span>電力、瓦斯、醫療、高處作業由合格人員處理</li>
+          </ul>
+          <p>AI 只協助整理與分類，安全等級由管委會確認。</p>
+        </section>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer class="foot" id="foot"></footer>
+<dialog id="dlg" aria-label="任務內容"></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="assets/board-common.js"></script>
+<script src="assets/tasks.js"></script>
+</body>
+</html>

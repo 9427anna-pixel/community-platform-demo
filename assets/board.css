@@ -1,0 +1,81 @@
+/* 任務板、各棟民意共用樣式。色票沿用 index.html 首頁。 */
+:root{
+  --ink:#1E4D2B;--text:#233127;--muted:#56655A;--line:#E1ECD6;
+  --green:#2F7D3B;--green-soft:#DDEFD0;--orange:#E9893A;--orange-deep:#B4541A;
+  --cream:#FBF1DC;--paper:#FFFDF8;--sun:#F5C451;--sky-a:#9ED8E8;--sky-b:#DDF3EC;
+  --hard:4px 4px 0 var(--ink);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:#F6FAF0}
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.hn{font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 頁首（與首頁相同） ---------- */
+.h-head{background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:5}
+.h-in{max-width:1360px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.h-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.h-logo b{font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:22px;line-height:1.2}
+.h-logo small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--muted)}
+.h-nav{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.h-nav a,.h-nav button{min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:999px;border:none;background:transparent;color:var(--text);text-decoration:none;font-size:16px}
+.h-nav .on{background:var(--green);color:#fff;font-weight:700}
+.pts{display:flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;background:#FFF4DE;color:#7A4A12;font-size:15px}
+
+/* ---------- 舞台背景 ---------- */
+.stage{position:relative;overflow:hidden;background:linear-gradient(var(--sky-a),var(--sky-b) 70%);min-height:calc(100vh - 69px);padding-bottom:150px}
+.stage>.town{position:absolute;left:0;right:0;bottom:0;width:100%;height:190px;display:block}
+.stage-in{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:0 24px}
+.cloud{position:absolute;z-index:1;fill:#fff;opacity:.9}
+.band{position:relative;z-index:2;background:var(--ink);color:#fff;overflow:hidden;border-bottom:3px solid var(--sun);white-space:nowrap}
+.band-track{display:inline-flex;animation:band 40s linear infinite}
+.band-track span{padding:3px 22px;font-size:13px;font-weight:700;letter-spacing:.04em}
+@keyframes band{to{transform:translateX(-50%)}}
+.top-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:22px 0 18px}
+.sign{margin:0;padding:6px 26px 8px;background:#fff;border:3px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink);font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:34px;line-height:1.3;color:#B4541A;letter-spacing:.03em}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{min-height:46px;display:flex;align-items:center;padding:0 18px;border:3px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none;box-shadow:3px 3px 0 var(--ink)}
+.tab[aria-current]{background:var(--green);color:#fff}
+
+/* ---------- 通用卡片與按鈕 ---------- */
+.panel{background:var(--paper);border:3px solid var(--ink);border-radius:16px;box-shadow:var(--hard);padding:16px}
+.panel h2,.panel h3{margin:0;color:var(--ink)}
+.btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 18px;border:3px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+.btn:disabled{background:#ECEAE3;color:#6C7268;box-shadow:none;cursor:not-allowed;transform:none}
+.btn.primary{background:var(--orange);color:#1B1B1B}
+.btn.green{background:var(--green);color:#fff}
+.btn.wide{width:100%}
+.btn.quiet{border-width:2px;box-shadow:none}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;padding:1px 10px;border-radius:999px;white-space:nowrap}
+.chip{min-height:44px;padding:0 16px;border:2px solid var(--green);border-radius:999px;background:#fff;color:var(--green);font-weight:700}
+.chip[aria-pressed=true]{background:var(--green);color:#fff}
+.meter{height:12px;background:#EEF0E6;border:2px solid var(--ink);border-radius:999px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--orange);transition:width .5s ease}
+
+/* ---------- 對話框 ---------- */
+dialog{width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:0;border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);background:var(--paper);color:var(--text)}
+dialog::backdrop{background:rgba(16,28,22,.55)}
+.dlg-head{position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px 12px;background:var(--paper);border-bottom:2px dashed var(--line)}
+.dlg-head h2{margin:0;font-size:22px;line-height:1.4;color:var(--ink)}
+.dlg-body{padding:14px 18px 20px;display:flex;flex-direction:column;gap:14px}
+.xbtn{width:44px;height:44px;flex-shrink:0;border:none;border-radius:50%;background:#F1EFE6;font-size:20px;line-height:1}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:2147483647;max-width:calc(100vw - 32px);text-align:center}
+.foot{position:relative;z-index:2;background:var(--ink);color:#D6E6DC;font-size:14px}
+.foot div{max-width:1360px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+.foot button{min-height:44px;padding:0 14px;border:1px solid #6E9480;border-radius:999px;background:transparent;color:#fff}
+
+@media (max-width:640px){
+  .h-in,.stage-in,.foot div{padding-left:16px;padding-right:16px}
+  .sign{font-size:27px;padding:4px 18px 6px}
+  .h-nav a,.h-nav button{padding:0 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
