@@ -1,0 +1,86 @@
+/* 任務板：軟木佈告欄 + 便利貼 */
+.lead{margin:0;padding:6px 14px;background:rgba(255,255,255,.75);border-radius:10px;color:var(--ink);font-weight:700}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
+.side{display:flex;flex-direction:column;gap:16px}
+.side h2{font-size:21px;margin-bottom:8px}
+
+.filters{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-bottom:16px}
+.fgroup{display:flex;flex-wrap:wrap;align-items:center;gap:8px;border:none;padding:0;margin:0}
+.fgroup legend,.fgroup>label{float:left;font-weight:700;color:var(--ink);padding:0;margin-right:4px}
+.fgroup select{min-height:44px;padding:0 10px;border:2px solid var(--green);border-radius:10px;background:#fff;font-weight:700;color:var(--green)}
+
+.board{padding:18px;border:10px solid #8A6A4A;border-radius:14px;box-shadow:var(--hard);background-color:#D3A871;background-image:radial-gradient(#BC8F58 1.3px,transparent 1.5px),radial-gradient(#E0BC8A 1px,transparent 1.2px);background-size:13px 13px,19px 19px;background-position:0 0,6px 8px}
+.count{margin:0 0 14px;display:inline-block;padding:2px 12px;background:#fff;border-radius:6px;font-weight:700;color:var(--ink)}
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:20px 18px}
+.note{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px 14px 14px;border:none;border-radius:4px;box-shadow:2px 4px 8px rgba(60,38,10,.35);text-align:left;color:var(--text);transition:transform .15s ease}
+.note:nth-child(3n+1){transform:rotate(-1.1deg)}
+.note:nth-child(3n+2){transform:rotate(.8deg)}
+.note:nth-child(3n){transform:rotate(-.4deg)}
+.note:hover,.note:focus-within{transform:rotate(0) translateY(-3px)}
+.note::before{content:'';position:absolute;left:50%;top:-7px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F7A98C,#C0563A 65%);box-shadow:1px 2px 2px rgba(0,0,0,.35)}
+.note h3{margin:0;font-size:18px;line-height:1.4;color:var(--ink)}
+.note .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px}
+.note .meta{font-size:14px;color:#3C4C40}
+.note .pt{font-weight:700;color:#7A4A12;background:#fff;padding:0 10px;border-radius:999px;font-size:15px}
+.note .btn{margin-top:auto;min-height:44px;box-shadow:none;border-width:2px}
+.note.c-space{background:#DDEFD0}.note.c-digital{background:#D5ECF6}.note.c-daily{background:#FDE7C8}.note.c-event{background:#EDE3F5}
+.note.is-high{background:#F1EEE5}
+.note.is-mine{outline:3px solid var(--green);outline-offset:2px}
+.stamp{position:absolute;right:10px;top:12px;padding:0 8px;border:2px solid #A63B22;border-radius:6px;color:#A63B22;font-weight:700;font-size:13px;transform:rotate(6deg);background:rgba(255,255,255,.6)}
+
+.r-low{background:#DDEFD0;color:#1E5C2B}
+.r-mid{background:#FFE7B8;color:#7A4A12}
+.r-high{background:#F9DCD3;color:#8E2F1A}
+
+.empty{margin:0;padding:24px;background:#fff;border-radius:6px;text-align:center}
+.mine-item{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-top:2px dashed var(--line)}
+.mine-item:first-child{border-top:none;padding-top:0}
+.mine-item b{color:var(--ink);line-height:1.4}
+.mine-item small{color:var(--muted);font-size:14px}
+.muted{margin:0;color:var(--muted);font-size:15px}
+
+.cv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.cv-grid div{padding:8px 4px;background:#F6FAF0;border-radius:10px;text-align:center;font-size:13px;color:var(--muted)}
+.cv-grid b{display:block;font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:26px;line-height:1.2;color:var(--green)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:13px;padding:2px 10px;border-radius:999px;border:2px dashed #B8C2B0;color:#6C7268}
+.badge.on{border:2px solid var(--orange-deep);background:#FFF4DE;color:#7A4A12;font-weight:700}
+
+.rule ul{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.rule li{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rule p{margin:0;font-size:14px;color:var(--muted)}
+
+/* 任務流程 */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.steps li{position:relative;padding-top:30px;text-align:center;font-size:13px;line-height:1.3;color:var(--muted)}
+.steps li::before{content:attr(data-n);position:absolute;left:50%;top:0;width:26px;height:26px;margin-left:-13px;border:2px solid #B8C2B0;border-radius:50%;background:#fff;font-weight:700;line-height:22px}
+.steps li.done{color:var(--ink)}
+.steps li.done::before{content:'✓';background:var(--green);border-color:var(--green);color:#fff}
+.steps li.now{color:var(--ink);font-weight:700}
+.steps li.now::before{border-color:var(--orange-deep);background:#FFF4DE;color:#7A4A12}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:15px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:500}
+.notice{margin:0;padding:10px 12px;border-radius:10px;background:#FFF4DE;color:#5D3A0E;font-size:15px}
+.notice.ok{background:var(--green-soft);color:#1E4D2B}
+.notice.stop{background:#F9DCD3;color:#7A2715}
+.checks{display:flex;flex-direction:column;gap:8px}
+.check{display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 10px;border:2px solid var(--line);border-radius:10px}
+.check input{width:22px;height:22px;accent-color:var(--green);flex-shrink:0}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.photo{display:flex;align-items:center;justify-content:center;min-height:92px;padding:6px;border:2px dashed #B8C2B0;border-radius:10px;color:var(--muted);font-size:14px;text-align:center}
+.photo.has{border:2px solid var(--green);background:var(--green-soft);color:var(--ink);font-weight:700}
+.acts{display:flex;flex-wrap:wrap;gap:10px}
+.acts .btn{flex:1 1 180px}
+.link-row{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:15px}
+.linkbtn{min-height:44px;padding:0 4px;border:none;background:none;color:#8E2F1A;text-decoration:underline}
+
+@media (max-width:1040px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+}
+@media (max-width:640px){
+  .board{padding:12px;border-width:7px}
+  .notes{grid-template-columns:minmax(0,1fr)}
+  .steps li{font-size:12px}
+}

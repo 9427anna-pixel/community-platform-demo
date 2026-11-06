@@ -1,0 +1,107 @@
+/* 各棟民意：立體社區地圖 + 三欄 */
+.three{display:grid;grid-template-columns:300px minmax(0,1fr) 340px;gap:20px;align-items:start}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+/* 統整卡 */
+.sum-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.sum-head h2{font-size:24px;line-height:1.3}
+.sum-sub{margin:0 0 10px;color:var(--orange-deep);font-weight:700;font-size:15px}
+.mood{background:#FFF4DE;color:#7A4A12}
+.bar-row{display:grid;grid-template-columns:82px 1fr 40px;align-items:center;gap:8px;font-size:15px;margin-top:6px}
+.bar-row span:last-child{text-align:right;font-weight:700}
+.linkish{min-height:44px;margin-top:6px;padding:0;border:none;background:none;color:var(--green);font-weight:700;text-decoration:underline}
+
+/* 比較與投票 */
+.cmp h3{font-size:16px;text-align:center;margin-bottom:10px}
+.cmp-box{padding:10px;border-radius:12px;background:#EAF4E0}
+.cmp-tag{display:inline-block;margin-bottom:4px;padding:0 12px;border-radius:8px;background:var(--green);color:#fff;font-weight:700}
+.poll{margin-top:14px;padding-top:12px;border-top:2px dashed var(--line)}
+.poll h4{margin:0 0 8px;color:var(--ink);font-size:16px;line-height:1.45}
+.poll small{color:var(--orange-deep);font-weight:700}
+.poll-opts{display:flex;flex-direction:column;gap:8px}
+.poll-opts .btn{box-shadow:none;border-width:2px;justify-content:flex-start;text-align:left;min-height:44px}
+.poll-res{display:grid;grid-template-columns:1fr auto;gap:2px 8px;font-size:15px;margin-bottom:8px}
+.poll-res .meter{grid-column:1/-1}
+.poll-res.mine b::after{content:'（你的選擇）';font-weight:400;font-size:13px;color:var(--muted)}
+.poll-total{margin:0;font-size:14px;color:var(--muted)}
+
+/* 地圖 */
+.mapcard{position:relative;padding:10px 12px 12px;background:var(--cream);border:3px solid var(--ink);border-radius:16px;box-shadow:var(--hard);min-width:0}
+.hint{position:relative;z-index:2;width:max-content;max-width:100%;margin:-26px auto 0;padding:2px 14px;background:#fff;border:2px solid var(--ink);border-radius:8px;font-size:14px;font-weight:700;color:var(--ink)}
+#iso svg{display:block;width:100%;height:auto}
+.bld{cursor:pointer;transition:transform .22s ease}
+.bld:hover{transform:translateY(-4px)}
+.bld.on{transform:translateY(-10px)}
+.bld:focus{outline:none}
+.bld:focus-visible .roof{stroke:var(--orange);stroke-width:4}
+.bchips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.bchips .chip{min-width:48px;padding:0 12px}
+.bubble{position:absolute;left:12px;top:20px;z-index:3;width:min(236px,46%);padding:8px 10px;background:#fff;border:2px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);font-size:14px;line-height:1.5}
+.bubble::after{content:'';position:absolute;right:26px;bottom:-11px;width:16px;height:16px;background:#fff;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) skew(10deg,10deg)}
+.bubble .unit{display:inline-block;margin-right:4px;padding:0 8px;border-radius:6px;background:var(--sun);color:#3A2A00;font-weight:700}
+
+/* 聲音卡 */
+.voice-title,.col-title{margin:0 0 10px;font-size:21px;line-height:1.4;color:var(--ink);text-shadow:0 0 6px #fff,0 0 2px #fff}
+.voices{display:flex;flex-direction:column;gap:12px;max-height:max(340px,calc(100vh - 430px));overflow-y:auto;padding:3px 8px 8px 3px}
+.vcard{padding:10px 12px;background:#fff;border:2px solid var(--ink);border-radius:14px;box-shadow:3px 3px 0 var(--ink)}
+.vcard:nth-child(even){margin-left:14px}
+.vcard:nth-child(odd){margin-right:14px}
+.vcard.is-new{background:#FFF4DE}
+.vtags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px}
+.t-no{background:var(--sun);color:#3A2A00}
+.t-unit{background:var(--ink);color:#fff}
+.t-topic{background:var(--green-soft);color:#1E4D2B}
+.vtext{margin:0 0 4px;line-height:1.55}
+.vreply{margin:0 0 4px;padding:4px 8px;border-left:4px solid var(--green);background:#F2F8EA;font-size:14px}
+.vfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2px 8px}
+.plus{min-height:44px;padding:0 8px;border:none;background:none;color:var(--orange-deep);font-weight:700;font-size:15px}
+.plus[aria-pressed=true]{color:var(--green)}
+.to-task{display:inline-flex;align-items:center;min-height:44px;color:var(--green);font-weight:700;font-size:15px}
+
+.cta{padding:12px;background:var(--sun);border:3px solid var(--ink);border-radius:16px;box-shadow:var(--hard);display:flex;flex-direction:column;gap:8px;text-align:center}
+.cta p{margin:0;font-size:19px;color:#2A2000}
+
+/* 大家都在說什麼 */
+.talk{grid-template-columns:300px minmax(0,1fr) 340px}
+.dist{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;padding:8px}
+.bub{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px;border:3px solid var(--ink);border-radius:50%;background:#fff;color:var(--ink);font-weight:700;line-height:1.2;box-shadow:2px 2px 0 var(--ink);transition:transform .15s ease}
+.bub:hover{transform:scale(1.05)}
+.bub small{font-weight:400;font-size:12px}
+.billboard{position:relative;padding:18px 20px 12px;background:var(--orange);border:4px solid var(--ink);border-radius:10px;box-shadow:6px 6px 0 var(--ink)}
+.bb-title{width:max-content;max-width:100%;margin:-36px 0 14px -8px;padding:4px 16px;background:#fff;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);color:var(--ink);font-size:24px;transform:rotate(-1.5deg)}
+.bb-title b{font-weight:400;color:#B4541A}
+.bb-row{display:flex;align-items:center;gap:12px;width:100%;min-height:92px;margin-bottom:12px;padding:8px 16px;border:3px solid var(--ink);border-radius:18px;background:var(--paper);text-align:left;box-shadow:inset -4px -4px 0 #EFE4CE;transition:transform .12s ease}
+.bb-row:hover{transform:translateY(-2px)}
+.bb-no{flex-shrink:0;padding:0 10px;border-radius:6px;background:var(--ink);color:var(--sun);font-weight:700;font-size:15px}
+.bb-name{flex:1;min-width:0;font-family:'Huninn','Noto Sans TC',sans-serif;font-size:30px;line-height:1.25;color:var(--ink)}
+.bb-num{flex-shrink:0;font-family:'Huninn','Noto Sans TC',sans-serif;font-size:32px;color:#B4541A}
+.bb-num small{font-family:'Noto Sans TC',sans-serif;font-size:14px;color:var(--muted);margin-left:2px}
+.bb-note{margin:0;text-align:center;font-size:14px;font-weight:700;color:#2A2000}
+
+/* 議題詳情與發言 */
+.topic-tag{font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;color:var(--orange-deep)}
+.lines{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.reply{margin:0;padding:10px 12px;border-radius:10px;background:var(--green-soft);color:#1E4D2B}
+.sub{margin:0 0 6px;font-size:16px;font-weight:700;color:var(--ink)}
+fieldset{border:none;margin:0;padding:0}
+legend{padding:0;margin-bottom:6px;font-weight:700;color:var(--ink)}
+.picks{display:flex;flex-wrap:wrap;gap:8px}
+.picks .chip{padding:0 14px}
+.say-text{width:100%;min-height:96px;padding:10px;border:2px solid var(--ink);border-radius:10px;background:#fff;resize:vertical;line-height:1.5}
+.say-count{text-align:right;font-size:14px;color:var(--muted)}
+.fine{margin:0;font-size:14px;color:var(--muted)}
+.floor-sel{min-height:44px;padding:0 10px;border:2px solid var(--green);border-radius:10px;background:#fff;color:var(--green);font-weight:700}
+
+@media (max-width:1180px){
+  .three{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .mapcard,.billboard{grid-column:1/-1;grid-row:1}
+}
+@media (max-width:720px){
+  .three{grid-template-columns:minmax(0,1fr)}
+  .bubble{position:static;width:auto;margin:10px 0 0}
+  .bubble::after{display:none}
+  .voices{max-height:none;overflow:visible}
+  .vcard:nth-child(n){margin-left:0;margin-right:0}
+  .bb-name{font-size:24px}.bb-num{font-size:26px}
+  .bb-row{flex-wrap:wrap}
+}

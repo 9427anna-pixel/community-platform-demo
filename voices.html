@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>各棟民意 · 社區共享平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/board.css">
+<link rel="stylesheet" href="assets/voices.css">
+</head>
+<body>
+<header class="h-head" id="head"></header>
+<div class="band" id="band"></div>
+<main class="stage" id="stage">
+  <div class="stage-in">
+    <div class="top-row">
+      <h1 class="sign" id="pageTitle">各棟在說什麼</h1>
+      <nav class="tabs" aria-label="民意檢視方式">
+        <a class="tab" id="tabMap" href="#">各棟地圖</a>
+        <a class="tab" id="tabTalk" href="#talk">大家都在說什麼</a>
+      </nav>
+    </div>
+
+    <!-- 各棟地圖：左統整、中地圖、右聲音 -->
+    <div class="three" id="viewMap">
+      <div class="col" id="left"></div>
+      <section class="mapcard" aria-label="社區立體地圖">
+        <p class="hint">點選棟別，看看大家都在說什麼</p>
+        <div class="bubble" id="bubble" aria-live="off"></div>
+        <div id="iso"></div>
+        <div class="bchips" id="bchips" role="group" aria-label="選擇棟別"></div>
+      </section>
+      <div class="col">
+        <section aria-labelledby="voiceTitle">
+          <h2 class="voice-title hn" id="voiceTitle"></h2>
+          <div class="voices" id="voices"></div>
+        </section>
+        <div class="cta">
+          <p class="hn">你也有一件事想說嗎？</p>
+          <button class="btn primary wide" type="button" data-say>我要加入發言</button>
+          <a class="btn quiet wide" href="#talk">先看看大家在說什麼</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 大家都在說什麼：左分布、中 TOP 3、右真心話 -->
+    <div class="three talk" id="viewTalk" hidden>
+      <section class="col" aria-labelledby="distTitle">
+        <h2 class="col-title hn" id="distTitle">完整議題分布</h2>
+        <div class="dist" id="dist"></div>
+      </section>
+      <section class="billboard" aria-labelledby="topTitle">
+        <h2 class="bb-title hn" id="topTitle">本月社區熱議 <b>TOP 3</b></h2>
+        <div id="top3"></div>
+        <p class="bb-note">點議題看完整內容</p>
+      </section>
+      <div class="col">
+        <section aria-labelledby="feedTitle">
+          <h2 class="col-title hn" id="feedTitle">住戶真心話</h2>
+          <div class="voices" id="feed"></div>
+        </section>
+        <div class="cta">
+          <p class="hn">你也有一件事想說嗎？</p>
+          <button class="btn primary wide" type="button" data-say>我要加入發言</button>
+          <a class="btn quiet wide" href="#">回到各棟地圖</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="foot" id="foot"></footer>
+<dialog id="dlg" aria-label="民意內容"></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="assets/board-common.js"></script>
+<script src="assets/voices.js"></script>
+</body>
+</html>
