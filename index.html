@@ -2299,6 +2299,14 @@ go(SCREENS.indexOf(start) >= 0 ? start : 'home');
 if (start === 'me') openMe();
 if (start === 'rewards') goRewards();
 if (start === 'acts') goActs('活動');
+// 網址的 # 改變時（例如從別處連到 index.html#tasks）切到對應分頁。
+window.addEventListener('hashchange', function () {
+  var h = location.hash.slice(1);
+  if (SCREENS.indexOf(h) >= 0) go(h);
+  else if (h === 'me') openMe();
+  else if (h === 'rewards') goRewards();
+  else if (h === 'acts') goActs('活動');
+});
 TASKS.forEach(function (t) { if (stage(t.id) === 'after') setTimeout(function () { settle(t.id); }, 1800); });
 // 棟別按鈕在畫面上時，先收起浮動的「我要發言」，避免擋住按鈕。
 if ('IntersectionObserver' in window) {
