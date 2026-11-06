@@ -36,15 +36,16 @@ a{color:inherit}
 .app[data-tab=home] .sbar{background:#E3F2EC}
 .sb-in,.island,.homebar,.desk{display:none}
 
+/* 手機預覽：電腦上按「手機預覽」時，以 iPhone 外框呈現 */
 @media (min-width:760px){
-  body{overflow:auto;background:radial-gradient(ellipse at 20% 0%,#FFFFFF 0%,#E6F3DC 55%,#CFE7BF 100%)}
-  .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;gap:64px;padding:24px}
-  .desk{display:block;max-width:360px;color:var(--text)}
-  .device{position:relative;inset:auto;width:414px;height:868px;flex-shrink:0;padding:12px;border-radius:66px;background:#1C1C1E;box-shadow:0 0 0 2px #45454A,0 34px 70px rgba(30,77,43,.35)}
-  .app{position:relative;inset:auto;width:390px;height:844px;border-radius:54px;--top:54px;--bot:26px}
-  .sb-in{display:flex;align-items:center;justify-content:space-between;height:100%;padding:6px 30px 0 44px;font-weight:700;font-size:16px;color:#111}
-  .island{display:block;position:absolute;top:23px;left:50%;width:124px;height:36px;margin-left:-62px;background:#000;border-radius:20px;z-index:100}
-  .homebar{display:block;position:absolute;bottom:8px;left:50%;width:136px;height:5px;margin-left:-68px;border-radius:3px;background:#1B1B1B;z-index:100;pointer-events:none}
+  html.pv body{overflow:auto;background:radial-gradient(ellipse at 20% 0%,#FFFFFF 0%,#E6F3DC 55%,#CFE7BF 100%)}
+  html.pv .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;gap:64px;padding:24px}
+  html.pv .desk{display:block;max-width:360px;color:var(--text)}
+  html.pv .device{position:relative;inset:auto;width:414px;height:868px;flex-shrink:0;padding:12px;border-radius:66px;background:#1C1C1E;box-shadow:0 0 0 2px #45454A,0 34px 70px rgba(30,77,43,.35)}
+  html.pv .app{position:relative;inset:auto;width:390px;height:844px;border-radius:54px;--top:54px;--bot:26px}
+  html.pv .sb-in{display:flex;align-items:center;justify-content:space-between;height:100%;padding:6px 30px 0 44px;font-weight:700;font-size:16px;color:#111}
+  html.pv .island{display:block;position:absolute;top:23px;left:50%;width:124px;height:36px;margin-left:-62px;background:#000;border-radius:20px;z-index:100}
+  html.pv .homebar{display:block;position:absolute;bottom:8px;left:50%;width:136px;height:5px;margin-left:-68px;border-radius:3px;background:#1B1B1B;z-index:100;pointer-events:none}
 }
 .desk .d-brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-size:20px}
 .desk h1{margin:18px 0 10px;font-size:40px;line-height:1.25;color:var(--ink)}
@@ -136,14 +137,51 @@ a{color:inherit}
 .iconbtn{width:44px;height:44px;flex-shrink:0;border:2px solid var(--green);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
 .news{position:relative;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 12px;scrollbar-width:none}
 .news::-webkit-scrollbar{display:none}
-.ncard{flex:0 0 100%;scroll-snap-align:start;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(30,77,43,.10);display:flex;flex-direction:column}
-.nart{position:relative;height:128px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.nicon{position:relative;width:84px;height:84px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.nbody{padding:14px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.nbody h3{font-size:20px;line-height:1.4;color:var(--ink)}
-.nbody p{font-size:15px;color:#3C4C40}
-.nbody .row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
-.nmore{align-self:flex-start;margin-top:auto;min-height:44px;padding:0 18px;border:2px solid var(--green);border-radius:999px;background:#fff;color:var(--green);font-weight:700;font-size:15px}
+.ncard{flex:0 0 78%;scroll-snap-align:start;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px rgba(30,77,43,.09);display:flex;flex-direction:column}
+.nart{position:relative;height:84px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.nicon{position:relative;width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.nbody{padding:10px 14px 12px;display:flex;flex-direction:column;gap:5px;flex:1}
+.nbody h3{font-size:17px;line-height:1.4;color:var(--ink)}
+.nbody p{font-size:14px;line-height:1.5;color:#3C4C40;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nbody .row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.nmore{align-self:flex-start;margin-top:auto;min-height:44px;padding:0 16px;border:none;background:none;color:var(--green);font-weight:700;font-size:14px;margin-left:-16px;text-decoration:underline;text-underline-offset:3px}
+
+/* 搜尋 */
+.sres{width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 26px rgba(30,77,43,.14);padding:6px}
+.sres .cnt{padding:6px 10px 0;font-size:13px;color:var(--muted)}
+.sres .grp{padding:10px 10px 2px}
+.area-pill{display:inline-block;font-size:12px;font-weight:700;padding:1px 9px;border-radius:999px;color:#fff}
+.sitem{display:flex;align-items:center;gap:8px;width:100%;min-height:52px;padding:6px 10px;border-radius:12px;text-align:left;font-size:16px}
+.sitem:active{background:#F2F8EA}
+.sitem .tx{flex:1;min-width:0}
+.sitem small{display:block;font-size:13px;color:var(--muted)}
+.sitem mark{background:#FFE7B8;color:inherit;border-radius:3px}
+.sempty{padding:12px;font-size:15px;color:#3C4C40}
+.shot{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;font-size:13px;color:#3C4C40;align-items:center}
+.shot button{min-height:36px;padding:0 12px;border:1px solid #CFE3C0;border-radius:999px;background:rgba(255,255,255,.9);color:var(--green);font-weight:700;font-size:14px}
+.flash{animation:flash 1.1s ease 2}
+@keyframes flash{0%,100%{box-shadow:0 0 0 0 rgba(233,137,58,0)}50%{box-shadow:0 0 0 5px rgba(233,137,58,.7)}}
+
+/* 積分兌換 */
+.rw-mine{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:12px;background:#fff;border:1px solid var(--line);border-radius:18px}
+.rw-mine b{font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:30px;line-height:1.1;color:#7A4A12}
+.rw-mine .s{flex:1;font-size:13px;color:var(--muted)}
+.rws{display:flex;flex-direction:column;gap:10px}
+.rwm{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:12px;background:#fff;border:1px solid var(--line);border-radius:18px}
+.rwm .art{position:relative;width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.rwm .info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rwm h3{font-size:17px;line-height:1.35;color:var(--ink)}
+.rwm .by{font-size:13px;color:var(--muted)}
+.rwm .cost{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.rwm .cost b{font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:22px;color:#7A4A12}
+.rwm .bar{flex:1;height:6px;border-radius:3px;background:#EEF0E6;overflow:hidden}
+.rwm .bar i{display:block;height:100%;background:var(--orange)}
+.rwm .act{grid-column:1/-1}
+.rtags{display:flex;flex-wrap:wrap;gap:4px}
+.rtag{font-size:11.5px;font-weight:700;padding:0 8px;border-radius:999px;line-height:20px}
+.rw-btn{width:100%;min-height:44px;border-radius:12px;font-size:15px;font-weight:700}
+.rcode{padding:18px;border-radius:16px;background:var(--green-soft);text-align:center;color:var(--ink)}
+.rcode b{display:block;font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:40px;letter-spacing:.12em;line-height:1.3}
 .newnew{font-size:12px;font-weight:700;color:#C0563A}
 .dots{display:flex;justify-content:center}
 .dots button{width:30px;height:30px;display:flex;align-items:center;justify-content:center}
@@ -207,6 +245,31 @@ a{color:inherit}
 .mb .tg{margin-top:4px;font-size:12px;font-weight:700;background:#FFFDF8;color:#8A3F12;padding:2px 8px;border-radius:999px}
 .pin{position:absolute;width:44px;height:44px;border:3px solid #FFFDF8;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .pin.ev{border-radius:12px;background:#1F6F78}
+/* 問題點：水滴形定位針，尖端對準地點 */
+.ipin{position:absolute;width:44px;height:56px;filter:drop-shadow(0 2px 3px rgba(27,43,36,.35))}
+.ipin svg{display:block;overflow:visible}
+.legend i.tear{border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+/* 語音回報 */
+.vbox{background:#F2F8EA;border:2px solid #CFE3C0;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.vrow{display:flex;align-items:center;gap:12px}
+.vrow b{font-size:17px;color:var(--ink)}
+.vrow p{font-size:13.5px;line-height:1.5;color:#3E4A44;margin-top:2px}
+.vmic{position:relative;width:64px;height:64px;flex-shrink:0;border-radius:50%;background:#2E6B4A;color:#fff;display:flex;align-items:center;justify-content:center}
+.vmic.on{background:#B03A2E}
+.vmic.on::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:3px solid #B03A2E;animation:vring 1.2s ease-out infinite}
+@keyframes vring{from{transform:scale(.92);opacity:1}to{transform:scale(1.3);opacity:0}}
+.vheard{background:#fff;border-radius:12px;padding:10px 12px;font-size:15px}
+.vchip{display:inline-flex;margin:6px 6px 0 0;padding:1px 10px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:700}
+.vword{background:#FFE7B8;border-radius:3px;padding:0 2px}
+.vmsg{padding:8px 12px;border-radius:10px;background:#FBEFE4;color:#5A2A0C;font-size:14px}
+.vtype{display:flex;gap:8px}
+.vtype input{flex:1;min-width:0;min-height:44px;padding:0 12px;border:1px solid #CFC8B6;border-radius:10px;background:#fff;font-size:16px}
+.vtype button{min-height:44px;padding:0 14px;border-radius:10px;background:#2E6B4A;color:#fff;font-weight:700}
+.vtry{display:flex;gap:6px;overflow-x:auto;margin:0 -12px;padding:0 12px 2px;scrollbar-width:none;font-size:13px;color:var(--muted);align-items:center}
+.vtry::-webkit-scrollbar{display:none}
+.vtry span{flex-shrink:0;white-space:nowrap}
+.vtry button{flex-shrink:0;min-height:36px;padding:0 12px;border:1px solid #CFC8B6;border-radius:999px;background:#fff;font-size:13px;white-space:nowrap}
+.vauto{font-size:11px;font-weight:700;margin-left:4px;padding:0 6px;border-radius:999px;background:#FFE7B8;color:#7A4A12}
 .pbadge{position:absolute;white-space:nowrap;font-size:11px;font-weight:700;padding:0 5px;border-radius:999px}
 .pbar{position:absolute;width:44px;height:7px;background:#FFFDF8;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(27,43,36,.3)}
 .wk{position:absolute;width:40px;height:40px;transition:left 1.4s linear,top 1.4s linear}
@@ -409,6 +472,220 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
 .toast.top{top:calc(var(--top) + 8px);bottom:auto}
 .toast{position:absolute;left:16px;right:16px;bottom:calc(var(--tabh) + 12px);z-index:60;background:var(--ink);color:#fff;padding:12px 18px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.25);text-align:center;font-size:15px;pointer-events:none}
 
+/* ===================================================================
+   手機版：整體縮小一號、兩側留白加大（避免太滿版）
+   =================================================================== */
+body{font-size:15px}
+.app{--tabh:calc(52px + max(var(--bot),8px))}
+.nav{min-height:52px;padding:6px 20px}
+.ttl{font-size:24px}
+.sub{font-size:13px}
+.brand b{font-size:18px}
+.brand svg{width:32px;height:32px}
+.ptsbtn{min-height:40px;padding:0 12px;font-size:14px}
+.back{font-size:16px}
+.sec{padding:22px 20px 0}
+.kick{font-size:13px}
+.h2{font-size:20px}
+.h2s{font-size:18px}
+.lead{font-size:13px}
+.hscroll{margin:0 -20px;padding:4px 20px 8px;scroll-padding:0 20px}
+.chip{min-height:40px;padding:0 14px;font-size:14px}
+.btn{min-height:44px;font-size:15px}
+.btn.sm,.btn.quiet{min-height:40px;font-size:14px}
+.card{padding:14px}
+.panel{padding:12px}
+.meta{font-size:13px}
+.muted{font-size:14px}
+.notice{font-size:14px}
+.hero{padding:4px 20px 0;gap:8px}
+.hero h1{font-size:23px}
+.hero p{font-size:14px}
+.live-tag{font-size:13px}
+.search{padding:3px 3px 3px 14px}
+.search input{min-height:36px}
+.search button{width:40px;height:40px}
+.scene{height:168px;width:calc(100% + 40px);margin:2px -20px 0}
+.ticker .tk-lab{font-size:13px}
+.tk-view{padding:7px 0}
+.track span{font-size:13px}
+.iconbtn{width:40px;height:40px}
+.news{margin:0 -20px;padding:4px 20px 10px}
+.ncard{flex-basis:74%;border-radius:16px}
+.nart{height:72px}
+.nicon{width:48px;height:48px}
+.nicon svg{width:24px;height:24px}
+.nbody{padding:9px 13px 10px;gap:4px}
+.nbody h3{font-size:16px}
+.nbody p{font-size:13.5px}
+.quick{gap:8px}
+.qbtn{padding:12px 4px 10px;border-radius:16px}
+.qbtn .ic{width:46px;height:46px}
+.qbtn .ic svg{width:24px;height:24px}
+.qbtn b{font-size:15px}
+.qbtn small{font-size:11.5px}
+.stats{gap:8px}
+.stat{padding:12px;border-radius:16px}
+.stat b{font-size:26px}
+.stat span{font-size:12px}
+.mini-map{height:148px}
+.mapprev{padding:10px;border-radius:18px}
+.hcard{flex-basis:200px;border-radius:16px}
+.hcard .art{height:82px}
+.hcard .art .circ{width:50px;height:50px}
+.hcard .art .circ svg{width:24px;height:24px}
+.hcard .bd{padding:10px 12px 12px}
+.hcard h3{font-size:15.5px}
+.hcard .go{min-height:40px;font-size:14px}
+.hrow{padding:8px 10px}
+.hrow .av{width:38px;height:38px}
+.hrow .who b{font-size:14px}
+.pair{padding:16px}
+.pair .nm{font-size:20px}
+.pair p{font-size:14px}
+.rw-mine{padding:10px 12px}
+.rw-mine b{font-size:26px}
+.rwm{grid-template-columns:52px minmax(0,1fr);gap:10px;padding:10px}
+.rwm .art{width:52px;height:52px;border-radius:14px}
+.rwm .art svg{width:24px;height:24px}
+.rwm h3{font-size:15.5px}
+.rwm .cost b{font-size:19px}
+.rw-btn{min-height:40px;font-size:14px}
+.chiprow{padding:0 20px}
+.mapwrap{margin:4px 20px 0}
+.legend{padding:10px 22px 0}
+.tile b{font-size:23px}
+.tile span{font-size:12px}
+.trow{padding:10px 12px}
+.trow .top b{font-size:15px}
+.topic{min-height:50px}
+.seg{margin:2px 20px 12px}
+.seg button{min-height:38px;font-size:14px}
+.tf{padding:0 20px}
+.tf .hscroll{margin:0 -20px}
+.tf-row .lab{font-size:14px}
+.sel{min-height:40px;font-size:15px}
+.cork{margin:12px 16px 0;padding:12px 10px 14px;border-width:6px}
+.note{padding:18px 12px 12px}
+.note h3{font-size:16px}
+.note .btn{min-height:40px}
+.stack{padding:0 20px}
+.isocard{margin:0 16px;padding:10px 8px 8px}
+.bubble{font-size:14px;min-height:56px}
+.sum-head h2{font-size:21px}
+.bar-row{grid-template-columns:78px 1fr 40px;font-size:14px}
+.vcard{padding:9px 11px 5px}
+.vtext{font-size:14.5px}
+.plus,.to-task{font-size:14px;min-height:40px}
+.fab{min-height:46px;font-size:15px;padding:0 16px}
+.billboard{margin:22px 16px 0;padding:20px 12px 8px}
+.bb-title{font-size:19px}
+.bb-row{min-height:62px}
+.bb-name{font-size:21px}
+.bb-num{font-size:22px}
+.prof{padding:16px}
+.prof .av{width:52px;height:52px;font-size:21px}
+.prof .big{font-size:34px}
+.tb svg{width:22px;height:22px}
+.tb-report span{width:50px;height:50px;margin-top:-18px}
+.tb-report span svg{width:22px;height:22px}
+.sh-head h2{font-size:19px}
+.sh-body{padding:12px 18px 20px;gap:12px}
+.ropt{min-height:46px;font-size:16px;padding:0 14px}
+.vmic{width:56px;height:56px}
+.vrow b{font-size:16px}
+.toast{font-size:14px}
+.tb-brand,.tb-pts,.tb-pv{display:none}
+
+/* ===================================================================
+   電腦版：同一份內容，改成網頁排版（寬度 900px 以上，且不是手機預覽）
+   =================================================================== */
+html.dk body{font-size:16px}
+html.dk .app{--top:68px;--bot:0px;--tabh:0px}
+html.dk .sbar,html.dk .desk,html.dk .island,html.dk .homebar{display:none}
+html.dk .tabbar{top:0;bottom:auto;height:68px;display:flex;align-items:center;gap:4px;padding:0 max(24px,calc((100% - 1240px)/2));border-top:none;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96)}
+html.dk .tb-brand{display:flex;align-items:center;gap:10px;margin-right:20px;color:var(--ink);text-align:left}
+html.dk .tb-brand b{font-family:'Huninn','Noto Sans TC',sans-serif;font-weight:400;font-size:21px;line-height:1.15}
+html.dk .tb-brand small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:var(--muted)}
+html.dk .tb{flex-direction:row;gap:8px;height:44px;padding:0 16px;border-radius:999px;font-size:16px}
+html.dk .tb small{font-size:16px}
+html.dk .tb svg{width:20px;height:20px}
+html.dk .tb.on{background:var(--green);color:#fff}
+html.dk .tb .n{position:static;margin-left:2px}
+html.dk .tb-report{order:5;margin-left:auto;flex-direction:row;align-items:center;gap:6px;height:44px;padding:0 18px;border-radius:999px;background:var(--orange);color:#1B1B1B;font-size:16px}
+html.dk .tb-report span{width:auto;height:auto;margin:0;border:none;background:none;box-shadow:none}
+html.dk .tb-report span svg{width:18px;height:18px}
+html.dk .tb-pts{display:flex;order:6;align-items:center;gap:6px;height:44px;padding:0 14px;margin-left:8px;border-radius:999px;background:#FFF4DE;color:#7A4A12;font-weight:700}
+html.dk .tb-pv{display:flex;order:7;align-items:center;gap:6px;height:44px;padding:0 14px;margin-left:8px;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-size:14px;font-weight:700}
+html.dk .screen{padding-bottom:56px}
+html.dk .screen>*:not(.hero):not(.ticker):not(.nav){max-width:1240px;margin-left:auto;margin-right:auto}
+html.dk .nav{position:static;padding:22px max(20px,calc((100% - 1208px)/2)) 8px;background:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+html.dk .ttl{font-size:34px}
+html.dk .sub{font-size:15px}
+html.dk .nav .ptsbtn,html.dk #s-home>.nav{display:none}
+html.dk .sec{padding:32px 16px 0}
+html.dk .h2{font-size:28px}
+html.dk .h2s{font-size:21px}
+html.dk .hscroll{margin:0;padding:4px 0 8px;flex-wrap:wrap}
+html.dk #s-voices>.seg{max-width:440px;margin:4px 0 18px max(16px,calc((100% - 1208px) / 2))}
+/* 首頁 */
+html.dk .hero{padding:28px 24px 0;gap:12px}
+html.dk .hero h1{font-size:42px}
+html.dk .hero p{font-size:17px}
+html.dk .search,html.dk .sres,html.dk .shot{width:100%;max-width:600px}
+html.dk .scene{width:100%;height:300px;margin:8px 0 0}
+html.dk .news{margin:0;padding:4px 0 12px}
+html.dk .ncard{flex-basis:calc((100% - 24px) / 3)}
+html.dk .nart{height:110px}
+html.dk .quick{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+html.dk .stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+html.dk .stat b{font-size:34px}
+html.dk .mini-map{height:240px}
+html.dk #homeCards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;padding:8px 0}
+html.dk .rws{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+html.dk #heroesSec{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;align-items:start}
+html.dk #heroesSec>.kick,html.dk #heroesSec>h2{grid-column:1/-1}
+html.dk .pair{margin-top:0}
+/* 社區地圖：地圖在左、資訊在右 */
+html.dk .mcols{display:flex;gap:28px;align-items:flex-start;padding:0 16px}
+html.dk .mmain{flex:1;min-width:0}
+html.dk .mside{flex:0 0 380px}
+html.dk .mside .sec{padding:0 0 22px}
+html.dk .chiprow{padding:0}
+html.dk .mapwrap{margin:4px 0 0}
+html.dk .mapview{height:auto!important;overflow:visible;display:flex;justify-content:center}
+html.dk .m-map{zoom:1!important}
+html.dk .fitbtn,html.dk .drag-hint{display:none}
+html.dk .legend{padding:10px 0 0}
+/* 任務板：佈告欄與我的任務並排 */
+html.dk #tSeg{display:none}
+html.dk .tcols{display:flex;gap:28px;align-items:flex-start;padding:0 16px}
+html.dk #tBoard,html.dk #tBoard[hidden]{display:block!important;flex:1;min-width:0}
+html.dk #tMine,html.dk #tMine[hidden]{display:block!important;flex:0 0 360px}
+html.dk #tMine .stack{padding:0}
+html.dk .tf{padding:0}
+html.dk .cork{margin:12px 0 0}
+html.dk .notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px 18px}
+/* 各棟民意：三欄 */
+html.dk #vMapView:not([hidden]){display:grid;grid-template-columns:300px minmax(0,1fr) 360px;gap:22px;align-items:start;padding:0 16px}
+html.dk .isocard{grid-column:2;grid-row:1;margin:0}
+html.dk #vLeft{grid-column:1;grid-row:1;margin-top:0!important;padding:0}
+html.dk #vMapView>.sec{grid-column:3;grid-row:1;padding:0}
+html.dk #vTalkView:not([hidden]){display:grid;grid-template-columns:320px minmax(0,1fr) 360px;gap:24px;align-items:start;padding:0 16px}
+html.dk .billboard{grid-column:2;grid-row:1;margin:22px 0 0}
+html.dk #vTalkView>.sec:nth-child(2){grid-column:1;grid-row:1;padding:0}
+html.dk #vTalkView>.sec:nth-child(3){grid-column:3;grid-row:1;padding:0}
+html.dk .fab-wrap{bottom:20px}
+/* 我的 */
+html.dk #s-me .stack{max-width:760px}
+/* 底部卡片改成置中視窗 */
+html.dk .sheet{left:50%;right:auto;top:50%;bottom:auto;width:min(580px,calc(100vw - 48px));max-height:min(86vh,860px);border-radius:24px;padding-bottom:0;transform:translate(-50%,-46%);opacity:0;transition:transform .25s ease,opacity .25s ease}
+html.dk .sheet.on{transform:translate(-50%,-50%);opacity:1}
+html.dk .grab{display:none}
+html.dk .sh-head{padding-top:18px}
+html.dk .toast{left:50%;right:auto;bottom:28px;width:max-content;max-width:520px;transform:translateX(-50%)}
+html.dk .toast.top{top:calc(var(--top) + 12px)}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
@@ -428,7 +705,7 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
     <li>點右上角的積分，看自己的 Impact CV</li>
   </ol>
   <p class="d-note">用手機打開這個網址會直接全螢幕顯示，也可以「加入主畫面」當成 App 使用。操作紀錄存在這台裝置的瀏覽器，和電腦版共用積分。</p>
-  <a class="d-link" href="index.html">打開電腦版</a>
+  <button type="button" class="d-link" data-a="pvOff" style="border:none;cursor:pointer;font-size:16px">回到電腦版畫面</button>
 </aside>
 
 <div class="device" id="device">
@@ -450,9 +727,11 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
     <p>看見社區正在發生的事，順手幫一點忙，就是參與。</p>
     <form class="search" id="searchForm" role="search">
       <label for="q" class="sr">搜尋社區資訊</label>
-      <input id="q" type="search" placeholder="例如：路燈、市集、志工" enterkeyhint="search" autocomplete="off">
+      <input id="q" type="search" placeholder="搜尋：路燈、電梯、市集、咖啡…" enterkeyhint="search" autocomplete="off" aria-controls="sres">
       <button type="submit" aria-label="搜尋"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
     </form>
+    <div class="sres" id="sres" role="region" aria-label="搜尋結果" hidden></div>
+    <div class="shot"><span>大家常找：</span><button type="button" data-a="hot" data-v="路燈">路燈</button><button type="button" data-a="hot" data-v="電梯">電梯</button><button type="button" data-a="hot" data-v="市集">市集</button><button type="button" data-a="hot" data-v="咖啡">咖啡</button></div>
     <svg class="scene" viewBox="470 300 620 300" preserveAspectRatio="xMidYMax slice" role="img" aria-label="社區插畫：年輕人和長輩在公寓與樹林之間互相幫忙">
       <defs>
         <pattern id="win" width="20" height="24" patternUnits="userSpaceOnUse"><rect x="4" y="5" width="11" height="12" rx="2" fill="#A9CFE0"/></pattern>
@@ -469,6 +748,8 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
       <rect x="940" y="372" width="100" height="140" rx="8" fill="#FFF4DE" stroke="#E2CFA6" stroke-width="2"/><rect x="952" y="394" width="76" height="100" fill="url(#win)"/>
       <path d="M0 470 C 240 430 480 490 720 465 S 1200 430 1440 470 V600 H0Z" fill="#A6D486"/>
       <path d="M700 600 C 740 560 790 530 745 480" fill="none" stroke="#F4EAD3" stroke-width="46" stroke-linecap="round"/>
+      <use href="#tree" x="40" y="380" width="90" height="120"/><use href="#tree" x="150" y="410" width="80" height="106"/><use href="#tree" x="250" y="395" width="90" height="120"/><use href="#pine" x="320" y="420" width="45" height="90"/>
+      <use href="#tree" x="1110" y="390" width="90" height="120"/><use href="#tree" x="1210" y="420" width="80" height="106"/><use href="#tree" x="1310" y="385" width="90" height="120"/><use href="#pine" x="1395" y="430" width="40" height="80"/>
       <use href="#pine" x="465" y="438" width="40" height="80"/><use href="#tree" x="660" y="420" width="60" height="80"/>
       <use href="#pine" x="1060" y="410" width="45" height="90"/>
       <path d="M0 530 C 300 500 600 550 900 525 S 1300 510 1440 535 V600 H0Z" fill="#84C46A"/>
@@ -480,6 +761,8 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
       <g class="bob2"><use href="#person" x="895" y="490" width="36" height="60" style="color:#E25C5C"/>
         <rect x="838" y="436" width="148" height="38" rx="19" fill="#fff"/><path d="M904 474 L912 486 L920 474Z" fill="#fff"/>
         <text x="912" y="461" text-anchor="middle" font-family="Huninn, Noto Sans TC, sans-serif" font-size="17" fill="#1E4D2B">路燈修好囉！</text></g>
+      <use href="#elder" x="210" y="512" width="36" height="60" style="color:#C77DA8"/><g class="bob"><use href="#person" x="250" y="514" width="34" height="56" style="color:#3F8FA8"/></g>
+      <g class="drift" fill="#fff"><ellipse cx="180" cy="330" rx="62" ry="18"/><ellipse cx="215" cy="316" rx="38" ry="22"/><ellipse cx="1290" cy="326" rx="64" ry="18"/><ellipse cx="1258" cy="312" rx="36" ry="22"/></g>
       <g class="bob"><use href="#person" x="1000" y="516" width="30" height="50" style="color:#F5C451"/></g>
       <g class="bob2"><use href="#person" x="1034" y="520" width="30" height="50" style="color:#6BBF8A"/></g>
       <ellipse class="leaf" cx="700" cy="390" rx="7" ry="4" fill="#E9893A"/><ellipse class="leaf2" cx="1000" cy="370" rx="7" ry="4" fill="#F5C451"/>
@@ -500,8 +783,8 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
       <button class="qbtn" data-a="report"><span class="ic" style="background:#FDE7C8" data-ic="alert|#B4541A"></span><b>我要回報</b><small>點一點就能回報</small></button>
       <button class="qbtn" data-a="tab" data-v="tasks"><span class="ic" style="background:#F9DCD3" data-ic="tasks|#C0563A"></span><b>任務板</b><small>接任務、拿積分</small></button>
       <button class="qbtn" data-a="tab" data-v="voices"><span class="ic" style="background:#FFF1C9" data-ic="chat|#A07614"></span><b>各棟民意</b><small>大家最關心什麼</small></button>
-      <button class="qbtn" data-a="soon" data-v="活動行事曆"><span class="ic" style="background:#DCEFF7" data-ic="cal|#2F7891"></span><b>活動行事曆</b><small>這週有什麼好玩</small></button>
-      <button class="qbtn" data-a="soon" data-v="積分兌換"><span class="ic" style="background:#EDE3F5" data-ic="gift|#7A52A8"></span><b>積分兌換</b><small>換在地好禮</small></button>
+      <button class="qbtn" data-a="goActs"><span class="ic" style="background:#DCEFF7" data-ic="cal|#2F7891"></span><b>活動行事曆</b><small>這週有什麼好玩</small></button>
+      <button class="qbtn" data-a="goRewards"><span class="ic" style="background:#EDE3F5" data-ic="gift|#7A52A8"></span><b>積分兌換</b><small>換在地好禮</small></button>
     </div>
   </section>
 
@@ -530,10 +813,17 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
     </button>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="actsSec">
     <div class="kick">本週活動與任務</div><h2 class="h2 hn" style="margin-bottom:8px">找一件你剛好能做的事</h2>
     <div class="hscroll" id="homeFilters" role="group" aria-label="分類篩選"></div>
-    <div class="hscroll" id="homeCards" style="gap:12px;padding-bottom:12px"></div>
+    <div class="hscroll" id="homeCards" style="gap:12px;padding-top:8px;padding-bottom:12px"></div>
+  </section>
+
+  <section class="sec" id="rewardsSec">
+    <div class="kick">積分兌換</div><h2 class="h2 hn" style="margin-bottom:12px">用積分換在地好禮</h2>
+    <div class="rw-mine" id="rwMine"></div>
+    <div class="rws" id="rwList"></div>
+    <p class="meta" style="margin-top:10px">兌換後到 D 棟管理室出示兌換碼領取。長輩可請管委會代為兌換。</p>
   </section>
 
   <section class="sec" id="heroesSec">
@@ -555,6 +845,7 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
     <div><h1 class="ttl hn">社區地圖</h1><div class="sub"><i class="dot live" style="background:#3DAA5C"></i>即時更新中 · <span class="js-clock"></span></div></div>
     <button class="ptsbtn" data-a="me" aria-label="我的積分，打開個人頁"><svg width="16" height="16" viewBox="0 0 24 24" fill="#E9893A" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span class="js-pts">120</span></button>
   </header>
+  <div class="mcols"><div class="mmain">
   <div class="chiprow"><div class="hscroll" id="mapChips" role="group" aria-label="地圖圖層"></div></div>
   <div class="mapwrap">
     <div class="mapview" id="mapView">
@@ -573,15 +864,17 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
         <div id="mWorkers"></div>
       </div>
     </div>
-    <span class="drag-hint">拖曳地圖看更多</span>
+    <span class="drag-hint" id="dragHint">雙指縮放・拖曳移動</span>
     <button class="fitbtn" id="fitBtn" data-a="mapFit"></button>
   </div>
   <div class="legend">
-    <span><i style="background:#B4541A"></i>待認領</span><span><i style="background:#6A4C93"></i>新通報</span><span><i style="background:#2B5C8A"></i>處理中</span><span><i style="background:#2E6B4A"></i>已完成</span><span><i style="background:#1F6F78;border-radius:3px"></i>活動</span><span><i style="background:#1B3A2F"></i>工作人員</span>
+    <span><i class="tear" style="background:#B4541A"></i>待認領</span><span><i class="tear" style="background:#6A4C93"></i>新通報</span><span><i class="tear" style="background:#2B5C8A"></i>處理中</span><span><i class="tear" style="background:#2E6B4A"></i>已完成</span><span><i style="background:#1F6F78;border-radius:3px"></i>活動</span><span><i style="background:#1B3A2F"></i>工作人員</span>
   </div>
+  </div><div class="mside">
   <section class="sec"><h2 class="h2s hn">今天的社區</h2><div class="tiles3" id="mapStats"></div></section>
   <section class="sec"><h2 class="h2s hn">你現在可以幫的忙</h2><p class="lead">完成任務拿積分，可到管委會兌換</p><div class="trows" id="mapTasks"></div></section>
   <section class="sec"><h2 class="h2s hn">大家最近在說什麼</h2><div class="topics" id="mapTopics"></div></section>
+  </div></div>
 </section>
 
 <!-- ===================== 任務板 ===================== -->
@@ -591,6 +884,7 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
     <button class="ptsbtn" data-a="me" aria-label="我的積分，打開個人頁"><svg width="16" height="16" viewBox="0 0 24 24" fill="#E9893A" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span class="js-pts">120</span></button>
   </header>
   <div class="seg" id="tSeg" role="tablist" aria-label="任務板檢視"></div>
+  <div class="tcols">
   <div id="tBoard">
     <div class="tf">
       <div class="tf-row" id="tTimeRow" role="group" aria-label="我有多少時間"></div>
@@ -605,6 +899,7 @@ legend{padding:0;margin-bottom:8px;font-weight:700;color:var(--ink)}
       <section class="card"><h2 class="h2s hn">我的 Impact CV</h2><div id="tCv"></div></section>
       <section class="card rule" id="tRule"></section>
     </div>
+  </div>
   </div>
 </section>
 
@@ -816,17 +1111,44 @@ var HEROES = [
   { rank: 3, color: '#8A6A3A', name: '陳大哥（C 棟）', did: '帶領 2 場社區活動', pts: 210, ini: '陳', av: '#3F8FA8' }
 ];
 
+/* ============ 積分兌換（與電腦版 index.html 相同） ============ */
+var REWARDS = [
+  { id: 'r1', name: '美式咖啡 1 杯', by: '社區合作咖啡店', cost: 60, tags: ['熱門', '在地店家'], bg: '#FDE7C8', icon: 'cup', color: '#B4541A', kw: '咖啡 飲料' },
+  { id: 'r2', name: '交誼廳自習座位 2 小時', by: '管委會 · D 棟交誼廳', cost: 80, tags: ['學生最愛'], bg: '#DCEFF7', icon: 'book', color: '#2F7891', kw: '自習 讀書 交誼廳 預約' },
+  { id: 'r3', name: '香草小盆栽', by: '頂樓菜園志工隊', cost: 50, left: 7, tags: ['限量', '新上架'], bg: '#DDEFD0', icon: 'plant', color: '#2F7D3B', kw: '盆栽 植物 菜園' },
+  { id: 'r4', name: '洗衣 1 次', by: '社區合作洗衣店', cost: 100, tags: ['在地店家', '長輩友善'], bg: '#FFF1C9', icon: 'shirt', color: '#A07614', kw: '洗衣 衣服' },
+  { id: 'r5', name: '志工服務證明（紙本）', by: '里辦公處核發', cost: 150, tags: ['升學加分'], bg: '#EDE3F5', icon: 'cert', color: '#7A52A8', kw: '證明 履歷 Impact CV 升學' },
+  { id: 'r6', name: '捐 1 份長輩共餐便當', by: '社區關懷據點', cost: 40, tags: ['公益'], bg: '#F9DCD3', icon: 'heart', color: '#C0563A', kw: '捐 便當 長輩 公益' }
+];
+var TAGC = { '熱門': ['#FDE2D8', '#9A3412'], '在地店家': ['#DDEFD0', '#1E5C2B'], '學生最愛': ['#DCEFF7', '#1D5B70'], '限量': ['#FFE7B8', '#7A4A12'], '新上架': ['#EDE3F5', '#5B3A86'], '長輩友善': ['#FFF1C9', '#6B4E07'], '升學加分': ['#DCEFF7', '#1D5B70'], '公益': ['#F9DCD3', '#8E2F1A'] };
+IC.cup = '<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3v3M11 3v3"/>';
+IC.plant = '<path d="M7 14h10l-1.5 7h-7z"/><path d="M12 14V9"/><path d="M12 9c0-3 2-5 5-5 0 3-2 5-5 5z"/><path d="M12 11c0-2.5-1.8-4-4.5-4 0 2.5 1.8 4 4.5 4z"/>';
+IC.shirt = '<path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z"/>';
+IC.cert = '<rect x="4" y="3" width="16" height="11" rx="1.5"/><path d="M8 7h8M8 10h5"/><circle cx="15" cy="17" r="2.5"/><path d="M13.6 19L13 22l2-1 2 1-.6-3"/>';
+function reward(id) { return REWARDS.filter(function (r) { return r.id === id; })[0]; }
+function tagHtml(r) { return r.tags.map(function (t) { var c = TAGC[t]; return '<span class="rtag" style="background:' + c[0] + ';color:' + c[1] + '">' + (t === '限量' && r.left ? '限量 10 份' : t) + '</span>'; }).join(''); }
+
+/* ============ 搜尋：五大區域的標題 ============ */
+var AREA = {
+  map: { name: '社區地圖', color: '#B4541A', kw: '地圖 回報 問題 修繕 工作人員', desc: '問題通報、修繕進度、工作人員' },
+  tasks: { name: '任務板', color: '#2F7D3B', kw: '任務 志工 幫忙 接單', desc: '15 分鐘也能幫上忙的微任務' },
+  voices: { name: '各棟民意', color: '#7A5A0E', kw: '民意 意見 投票 發言 熱議', desc: '各棟在說什麼、本月熱議 TOP 3' },
+  acts: { name: '活動', color: '#1F6F78', kw: '活動 課程 行事曆', desc: '本週社區活動與課程' },
+  rewards: { name: '積分兌換', color: '#7A52A8', kw: '積分 兌換 獎品 點數 好禮', desc: '用積分換在地好禮' }
+};
+
 /* ============ 狀態 ============ */
 var S = {
   tab: null, me: false, sheet: null, sayKeep: '',
   bonus: sget('bonusPoints', 0), stages: sget('taskStages', {}), tMe: sget('tasksMe', 'D 棟'),
   vAdded: sget('voicesAdded', []), vPlus: sget('voicesPlus', {}), vVotes: sget('voicesVotes', {}),
-  reports: sget('m.reports', []), joined: sget('m.joined', {}),
+  reports: sget('m.reports', []), joined: sget('m.joined', {}), redeemed: sget('redeemed', {}),
   home: { idx: 0, paused: RM, filter: '全部', counted: false, touchAt: 0 },
-  map: { layers: { issue: true, opinion: true, repair: true, event: true, worker: true }, tick: 0, fit: false, init: false },
+  map: { layers: { issue: true, opinion: true, repair: true, event: true, worker: true }, tick: 0, scale: 0.75, init: false },
+  pv: /[?&]view=phone/.test(location.search) || sget('m.pv', false),
   tasks: { seg: 'board', time: 0, cat: 'all' },
   voices: { view: 'map', sel: null, bubble: 0 },
-  say: { b: null, f: 1, topic: null }, rep: { what: null, where: null, urgent: null }
+  say: { b: null, f: 1, topic: null }, rep: { what: null, where: null, urgent: null, auto: {}, v: { state: 'idle', text: '', words: [] } }
 };
 function points() { return 120 + S.bonus; }
 var lastPts = null;
@@ -886,7 +1208,12 @@ function go(tab) {
   $('#app').dataset.tab = tab;
   renderTabbar();
   if (same) $('#s-' + tab).scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
-  if (tab === 'map' && !S.map.init) { S.map.init = true; var v = $('#mapView'); v.scrollLeft = 170; v.scrollTop = 20; }
+  if (tab === 'map' && !S.map.init && !isDk()) {
+    // 第一次打開地圖：以 0.75 倍顯示，畫面對準地圖中央。
+    S.map.init = true; var v = $('#mapView');
+    setMapScale(S.map.scale);
+    v.scrollLeft = (MAP_W * S.map.scale - v.clientWidth) / 2; v.scrollTop = (MAP_H * S.map.scale - v.clientHeight) / 2;
+  }
   if (tab === 'home' && !S.home.counted) countUp();
   renderMapLayers();
 }
@@ -926,6 +1253,9 @@ function openSheet(o) {
 }
 function closeSheet(instant) {
   if (!S.sheet) return;
+  stopVoice();
+  // 回報卡片用叉叉、往下拖或點背景關閉時，清空已選的標籤與語音內容。
+  if (S.sheet.type === 'report') S.rep = newRep();
   S.sheet = null;
   var sh = $('#sheet'), sc = $('#scrim');
   sh.classList.remove('on'); sc.classList.remove('on'); sh.style.transform = '';
@@ -938,8 +1268,14 @@ function closeSheet(instant) {
 function renderSheet(fresh) {
   var s = S.sheet; if (!s) return;
   var body = $('#sheetIn .sh-body'), top = body && !fresh ? body.scrollTop : 0;
+  // 重畫後把焦點放回原本的按鈕（語音辨識會一直重畫）。
+  var a = document.activeElement, fk = !fresh && a && $('#sheetIn').contains(a) && a.dataset && a.dataset.a ? a.dataset.a + '|' + (a.dataset.v || '') : null;
   $('#sheetIn').innerHTML = SHEET[s.type](s.id);
   var nb = $('#sheetIn .sh-body'); if (nb) nb.scrollTop = top;
+  if (fk) {
+    var b = $$('#sheetIn [data-a]').filter(function (x) { return x.dataset.a + '|' + (x.dataset.v || '') === fk; })[0];
+    if (b) b.focus({ preventScroll: true });
+  }
 }
 function head(pills, title) {
   return '<div class="sh-head" data-drag><div>' + (pills ? '<div class="pills">' + pills + '</div>' : '') + '<h2 id="sheetTitle" tabindex="-1">' + title + '</h2></div>' +
@@ -949,7 +1285,7 @@ function head(pills, title) {
 (function () {
   var y0 = null, dy = 0, sh = $('#sheet');
   sh.addEventListener('pointerdown', function (ev) {
-    if (!ev.target.closest('[data-drag]') || ev.target.closest('button')) return;
+    if (isDk() || !ev.target.closest('[data-drag]') || ev.target.closest('button')) return;
     y0 = ev.clientY; dy = 0; sh.style.transition = 'none';
     try { ev.target.setPointerCapture(ev.pointerId); } catch (e) { /* ignore */ }
   });
@@ -1008,6 +1344,88 @@ function taskBox(t, verb) {
 }
 function bars(rows) {
   return rows.map(function (r) { return '<div class="bar-row"><span>' + esc(r[0]) + '</span><span class="meter"><i style="width:' + r[1] + '%"></i></span><span>' + r[1] + '%</span></div>'; }).join('');
+}
+
+/* ============ 語音回報：只抓口語關鍵詞，自動選三組標籤（與電腦版相同） ============ */
+// 每組由上往下比對，先命中的優先（例如「路燈壞掉」算路燈不亮，不算設施損壞）。
+var VOICE_RULES = {
+  what: [
+    ['有人需要幫忙', ['幫忙', '幫我', '幫一下', '救命', '搬', '跌倒', '扶', '不舒服', '需要人', '提不動', '拿不動']],
+    ['路燈不亮', ['路燈', '燈', '不亮', '好暗', '很暗', '太暗', '黑黑', '暗暗', '照明']],
+    ['漏水', ['漏水', '滴水', '水管', '積水', '淹水', '水痕', '在漏']],
+    ['垃圾髒亂', ['垃圾', '落葉', '葉子', '髒', '臭', '回收', '廚餘', '亂丟', '便便', '大便']],
+    ['噪音', ['吵', '噪音', '好大聲', '很大聲', '施工', '裝潢', '電鑽']],
+    ['設施損壞', ['壞', '破', '裂', '故障', '不能用', '卡住', '鬆', '斷掉', '電梯', '門鎖', '磁磚', '坡道']]
+  ],
+  where: [
+    ['中庭花園', ['中庭', '花園', '步道', '涼亭', '草地']],
+    ['大門', ['大門', '門口', '警衛', '入口']],
+    ['停車場', ['停車', '車位', '機車', '地下室']]
+  ],
+  urgent: [
+    ['現在就要', ['現在', '馬上', '趕快', '快點', '很急', '緊急', '危險', '立刻', '救命', '跌倒']],
+    ['這週內', ['這週', '這禮拜', '這個禮拜', '這幾天', '明天', '盡快', '最近']],
+    ['不急', ['不急', '有空', '慢慢', '不用急', '有時間', '不趕']]
+  ]
+};
+// 棟別：「C 棟」「c棟」或語音常被聽成的同音字（欸棟、西棟…）。
+var BLD_SOUND = { '欸': 'A', '诶': 'A', '比': 'B', '逼': 'B', '西': 'C', '迪': 'D', '低': 'D', '伊': 'E', '衣': 'E', '艾芙': 'F', '愛芙': 'F' };
+function parseVoice(text) {
+  var t = text.replace(/\s+/g, '').replace(/[Ａ-Ｚａ-ｚ]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); });
+  var out = { words: [] };
+  ['what', 'urgent', 'where'].forEach(function (k) {
+    for (var i = 0; i < VOICE_RULES[k].length; i++) {
+      var r = VOICE_RULES[k][i], w = r[1].filter(function (x) { return t.indexOf(x) >= 0; })[0];
+      if (w) { out[k] = r[0]; out.words.push(w); return; }
+    }
+  });
+  var m = /([A-Fa-f])棟/.exec(t), b = m ? m[1].toUpperCase() : null;
+  if (!b) Object.keys(BLD_SOUND).forEach(function (s) { if (!b && t.indexOf(s + '棟') >= 0) b = BLD_SOUND[s]; });
+  if (b) { out.where = b + ' 棟'; out.words.push(m ? m[0] : b + '棟'); }
+  return out;
+}
+var Speech = window.SpeechRecognition || window.webkitSpeechRecognition, recog = null;
+var VOICE_TRY = ['C 棟路燈壞掉了，晚上好暗', '中庭落葉好多，有空再處理就好', 'E 棟奶奶跌倒了，趕快來幫忙'];
+function newRep() { return { what: null, where: null, urgent: null, auto: {}, v: { state: 'idle', text: '', words: [] } }; }
+function applyVoice(text) {
+  var r = S.rep, p = parseVoice(text);
+  r.v.text = text; r.v.words = p.words;
+  // 這句有提到的欄位自動選；沒提到的，清掉上一句語音選的（手動點選的保留）。
+  ['what', 'where', 'urgent'].forEach(function (k) {
+    if (p[k]) { r[k] = p[k]; r.auto[k] = true; }
+    else if (r.auto[k]) { r[k] = null; delete r.auto[k]; }
+  });
+  if (S.sheet && S.sheet.type === 'report') renderSheet();
+}
+function startVoice() {
+  var v = S.rep.v;
+  if (!Speech) { v.state = 'unsupported'; renderSheet(); return; }
+  recog = new Speech();
+  recog.lang = 'zh-TW'; recog.interimResults = true; recog.continuous = false;
+  recog.onresult = function (e) {
+    var t = ''; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript;
+    applyVoice(t);
+  };
+  recog.onerror = function (e) { v.state = /not-allowed|service-not-allowed/.test(e.error) ? 'denied' : (e.error === 'no-speech' ? 'nospeech' : 'error'); if (S.sheet) renderSheet(); };
+  recog.onend = function () { recog = null; if (v.state === 'listening') v.state = 'idle'; if (S.sheet && S.sheet.type === 'report') renderSheet(); };
+  try { recog.start(); v.state = 'listening'; } catch (e) { v.state = 'error'; }
+  renderSheet();
+}
+function stopVoice() { if (recog) { try { recog.stop(); } catch (e) { /* 已停止 */ } } }
+function voiceHtml() {
+  var v = S.rep.v, on = v.state === 'listening';
+  var msg = { unsupported: '這個瀏覽器不支援語音輸入（請用 iPhone Safari 或 Chrome），可以改用下面打字。', denied: '沒有取得麥克風權限。請到「設定 › Safari › 麥克風」允許，或改用打字。', nospeech: '沒有聽到聲音，再按一次麥克風試試。', error: '語音服務暫時無法使用，可以改用打字。' }[v.state];
+  var heard = v.text;
+  v.words.forEach(function (w) { [w, w.replace(/^(.)棟$/, '$1 棟')].forEach(function (x) { heard = heard.split(x).join('\u0001' + x + '\u0002'); }); });
+  heard = esc(heard).replace(/\u0001/g, '<span class="vword">').replace(/\u0002/g, '</span>');
+  var picked = ['what', 'where', 'urgent'].filter(function (k) { return S.rep.auto[k] && S.rep[k]; });
+  return '<section class="vbox" aria-label="用說的回報"><div class="vrow"><button type="button" class="vmic' + (on ? ' on' : '') + '" data-a="voice" aria-pressed="' + on + '" aria-label="' + (on ? '停止聆聽' : '開始用說的回報') + '">' +
+    (on ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>' : '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>') + '</button>' +
+    '<div><b>' + (on ? '正在聽……說完再按一下' : '按一下，用說的') + '</b><p>說關鍵詞就好，例如「C 棟路燈壞掉」「中庭落葉」「樓上好吵」，會自動幫你選好下面的標籤。</p></div></div>' +
+    (msg ? '<p class="vmsg" role="status">' + msg + '</p>' : '') +
+    (v.text ? '<div class="vheard" role="status">聽到：「' + heard + '」<div>' + (picked.length ? '已幫你選好：' + picked.map(function (k) { return '<span class="vchip">' + S.rep[k] + '</span>'; }).join('') : '沒有對到關鍵詞，請直接點下面的選項。') + '</div></div>' : '') +
+    '<form class="vtype" id="vtypeForm"><label for="vtext" class="sr">用打的描述問題</label><input id="vtext" placeholder="不方便說話？也可以打一句話" autocomplete="off" enterkeyhint="done"><button type="submit">帶入</button></form>' +
+    '<div class="vtry"><span>範例</span>' + VOICE_TRY.map(function (s) { return '<button type="button" data-a="vtry" data-v="' + esc(s) + '">' + esc(s) + '</button>'; }).join('') + '</div></section>';
 }
 
 var SHEET = {
@@ -1070,16 +1488,31 @@ var SHEET = {
       '<div class="picks" role="group" aria-label="常用句，點一下帶入">' + QUICK.map(function (q) { return '<button type="button" class="btn quiet" data-a="quick" data-v="' + esc(q) + '">' + esc(q) + '</button>'; }).join('') + '</div></div>' +
       '<p class="fine">頁面只會顯示棟別與樓層，不會公開姓名和門牌。</p><button class="btn primary wide" type="submit">送出 +10 點</button></form>';
   },
+  reward: function (id) {
+    var r = reward(id), code = S.redeemed[id], p = points();
+    var top = '<div style="display:flex;gap:14px;align-items:center"><span style="width:72px;height:72px;flex-shrink:0;border-radius:18px;background:' + r.bg + ';display:flex;align-items:center;justify-content:center">' + ic(r.icon, 34, r.color, 1.9) + '</span>' +
+      '<div><div class="rtags" style="margin-bottom:4px">' + tagHtml(r) + '</div><p class="meta">' + esc(r.by) + '</p></div></div>';
+    if (code) {
+      return head('<span class="pill p-pt">已兌換</span>', esc(r.name)) + '<div class="sh-body">' + top +
+        '<div class="rcode">兌換碼<b>' + code + '</b>到 D 棟管理室出示這個畫面即可領取</div><button class="btn green wide" data-a="close">好</button></div>';
+    }
+    return head('<span class="pill p-pt">' + r.cost + ' 點</span>', '兌換「' + esc(r.name) + '」') + '<div class="sh-body">' + top +
+      '<dl class="facts"><dt>需要</dt><dd>' + r.cost + ' 點</dd><dt>我的積分</dt><dd>' + p + ' 點 → 兌換後剩 ' + (p - r.cost) + ' 點</dd><dt>領取</dt><dd>D 棟管理室，出示兌換碼</dd></dl>' +
+      '<p class="notice">長輩可請管委會代為兌換，不用自己操作手機。</p>' +
+      '<button class="btn primary wide" data-a="rwConfirm" data-v="' + r.id + '"' + (p < r.cost ? ' disabled' : '') + '>確認用 ' + r.cost + ' 點兌換</button></div>';
+  },
   report: function () {
     var r = S.rep, ready = r.what && r.where && r.urgent;
     var group = function (title, arr, key) {
       return '<fieldset><legend>' + title + '</legend><div class="picks">' + arr.map(function (v) {
-        return '<button class="ropt" data-a="repOpt" data-v="' + key + '|' + v + '" aria-pressed="' + (r[key] === v) + '">' + v + '</button>';
+        var on = r[key] === v;
+        return '<button class="ropt" data-a="repOpt" data-v="' + key + '|' + v + '" aria-pressed="' + on + '">' + v + (on && r.auto[key] ? '<span class="vauto">語音</span>' : '') + '</button>';
       }).join('') + '</div></fieldset>';
     };
-    return head('<span class="pill p-pt">全部用點的就好，不用打字</span>', '回報社區問題') +
-      '<div class="sh-body">' + group('1 · 發生什麼事？', WHATS, 'what') + group('2 · 在哪裡？', WHERES, 'where') + group('3 · 有多急？', URGENTS, 'urgent') +
-      '<button class="btn primary wide" data-a="repSubmit"' + (ready ? '' : ' disabled') + '>送出回報 · +10 點</button></div>';
+    return head('<span class="pill p-pt">用說的，或直接點，都不用打字</span>', '回報社區問題') +
+      '<div class="sh-body">' + voiceHtml() + group('1 · 發生什麼事？', WHATS, 'what') + group('2 · 在哪裡？', WHERES, 'where') + group('3 · 有多急？', URGENTS, 'urgent') +
+      '<div style="display:flex;gap:10px"><button class="btn quiet" data-a="close" style="flex:0 0 96px">取消</button>' +
+      '<button class="btn primary" style="flex:1" data-a="repSubmit"' + (ready ? '' : ' disabled') + '>送出回報 · +10 點</button></div></div>';
   }
 };
 
@@ -1091,9 +1524,13 @@ function renderTabbar() {
     return '<button class="tb' + (on ? ' on' : '') + '" data-a="tab" data-v="' + k + '"' + (on ? ' aria-current="page"' : '') + '>' + ic(icn, 25, 'currentColor', on ? 2.4 : 2) + '<small>' + label + '</small>' +
       (k === 'tasks' && n ? '<span class="n" aria-label="' + n + ' 件進行中">' + n + '</span>' : '') + '</button>';
   };
-  $('#tabbar').innerHTML = tb('home', '首頁', 'home') + tb('map', '地圖', 'map') +
-    '<button class="tb-report" data-a="report" aria-label="我要回報問題"><span>' + ic('plus', 26, '#1B1B1B', 3) + '</span>回報</button>' +
-    tb('tasks', '任務', 'tasks') + tb('voices', '民意', 'chat');
+  // 電腦版會額外顯示品牌、積分與「手機預覽」（手機版用 CSS 隱藏）。
+  $('#tabbar').innerHTML = '<button class="tb-brand" data-a="tab" data-v="home" aria-label="社區共享平台首頁"><svg width="38" height="38" viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="21" fill="#DDEFD0"/><rect x="19" y="24" width="4" height="11" rx="2" fill="#8A6A4A"/><circle cx="21" cy="17" r="9" fill="#5FAE4E"/><circle cx="14" cy="22" r="6" fill="#6DBA58"/><circle cx="28" cy="22" r="6" fill="#4E9E44"/></svg><b>社區共享平台<small>大鵬新城社區</small></b></button>' +
+    tb('home', '首頁', 'home') + tb('map', isDk() ? '社區地圖' : '地圖', 'map') +
+    '<button class="tb-report" data-a="report" aria-label="我要回報問題"><span>' + ic('plus', 26, '#1B1B1B', 3) + '</span>' + (isDk() ? '我要回報' : '回報') + '</button>' +
+    tb('tasks', isDk() ? '任務板' : '任務', 'tasks') + tb('voices', isDk() ? '各棟民意' : '民意', 'chat') +
+    '<button class="tb-pts" data-a="me" aria-label="我的積分，打開個人頁"><svg width="16" height="16" viewBox="0 0 24 24" fill="#E9893A" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>我的積分 <span class="js-pts">' + points() + '</span></button>' +
+    '<button class="tb-pv" data-a="pvOn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>手機預覽</button>';
 }
 
 /* ============ 首頁 ============ */
@@ -1104,8 +1541,8 @@ function buildHome() {
   $('#news').innerHTML = NEWS.map(function (n, i) {
     return '<article class="ncard" aria-label="第 ' + (i + 1) + ' 則，共 ' + NEWS.length + ' 則"><div class="nart" style="background:' + n.bg + '" aria-hidden="true">' +
       '<svg width="100%" height="56" viewBox="0 0 400 56" preserveAspectRatio="none" style="position:absolute;left:0;bottom:0"><path d="M0 30 C 80 6 160 40 240 22 S 360 14 400 26 V56 H0Z" fill="#fff" fill-opacity=".55"/></svg>' +
-      TREE(56, 74, 'left:18px;bottom:8px') + TREE(42, 56, 'right:24px;bottom:10px') +
-      '<span class="nicon">' + ic(n.icon, 40, n.color, 1.8) + '</span></div>' +
+      TREE(36, 48, 'left:14px;bottom:4px') + TREE(28, 38, 'right:18px;bottom:6px') +
+      '<span class="nicon">' + ic(n.icon, 28, n.color, 1.9) + '</span></div>' +
       '<div class="nbody"><div class="row"><span class="pill" style="background:' + TAG_COLOR[n.tag] + ';color:#fff">' + n.tag + '</span>' + n.date + (n.isNew ? '<span class="newnew live">NEW</span>' : '') + '</div>' +
       '<h3 class="hn">' + esc(n.title) + '</h3><p>' + esc(n.body) + '</p><button class="nmore" data-a="newsMore" data-v="' + i + '">看更多</button></div></article>';
   }).join('');
@@ -1118,6 +1555,7 @@ function buildHome() {
     clearTimeout(nsT);
     nsT = setTimeout(function () {
       var w = news.children[0].offsetWidth + 12, i = Math.round(news.scrollLeft / w);
+      if (news.scrollLeft + news.clientWidth >= news.scrollWidth - 4) i = NEWS.length - 1;
       if (i !== S.home.idx) { S.home.idx = Math.max(0, Math.min(NEWS.length - 1, i)); renderNewsUI(); }
     }, 90);
   }, { passive: true });
@@ -1180,13 +1618,105 @@ function renderHomeCards() {
       on = !!S.joined[c.id]; label = on ? '已登記' : (c.reward ? '我要報名' : '加入行事曆');
       act = 'data-a="join" data-v="' + c.id + '"';
     }
-    return '<article class="hcard"><div class="art" style="background:' + c.bg + '" aria-hidden="true">' + TREE(40, 54, 'left:12px;bottom:4px') +
+    return '<article class="hcard" id="hc-' + c.id + '"><div class="art" style="background:' + c.bg + '" aria-hidden="true">' + TREE(40, 54, 'left:12px;bottom:4px') +
       '<span class="circ">' + ic(c.icon, 28, c.color, 2) + '</span>' + (c.reward ? '<span class="pt">+' + c.reward + ' 點</span>' : '') + '</div>' +
       '<div class="bd"><span class="ctag">' + c.cat + '</span><h3>' + esc(c.title) + '</h3><span class="meta">' + c.time + ' · ' + c.place + '</span>' +
       '<button class="go" ' + act + ' style="background:' + (on ? '#DDEFD0' : '#2F7D3B') + ';color:' + (on ? '#1E4D2B' : '#fff') + '">' + label + '</button></div></article>';
   }).join('');
 }
-function renderHomeDyn() { if (S.home.counted) renderStats(1); renderHomeFilters(); renderHomeCards(); }
+function renderRewards() {
+  var p = points(), n = Object.keys(S.redeemed).length;
+  $('#rwMine').innerHTML = '<svg width="32" height="32" viewBox="0 0 24 24" fill="#E9893A" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>' +
+    '<div><div class="meta" style="font-size:13px">我的積分</div><b>' + p + '</b> 點</div><span class="s">' + (n ? '已兌換 ' + n + ' 項<br>' : '') + '回報 +10、投票 +5、任務 +15～50</span>';
+  $('#rwList').innerHTML = REWARDS.map(function (r) {
+    var code = S.redeemed[r.id], need = Math.max(0, r.cost - p), pct = Math.min(100, Math.round(p / r.cost * 100)), btn;
+    if (code) btn = '<button class="rw-btn" data-a="rwOpen" data-v="' + r.id + '" style="background:#DDEFD0;color:#1E4D2B">已兌換 · 兌換碼 ' + code + '</button>';
+    else if (need) btn = '<button class="rw-btn" data-a="tab" data-v="tasks" style="background:#F1EFE6;color:#3E4A44">還差 ' + need + ' 點 · 去接任務</button>';
+    else btn = '<button class="rw-btn" data-a="rwOpen" data-v="' + r.id + '" style="background:#E9893A;color:#1B1B1B">兌換</button>';
+    var left = r.left !== undefined ? r.left - (code ? 1 : 0) : null;
+    return '<article class="rwm" id="rw-' + r.id + '"><span class="art" style="background:' + r.bg + '" aria-hidden="true">' + ic(r.icon, 30, r.color, 1.9) + '</span>' +
+      '<div class="info"><div class="rtags">' + tagHtml(r) + (left !== null ? '<span class="rtag" style="background:#fff;color:#7A4A12;border:1px solid #F2D3B5">剩 ' + left + ' 份</span>' : '') + '</div>' +
+      '<h3>' + esc(r.name) + '</h3><span class="by">' + esc(r.by) + '</span>' +
+      '<div class="cost"><b>' + r.cost + '</b>點<span class="bar" role="img" aria-label="我的積分達成 ' + pct + '%"><i style="width:' + pct + '%"></i></span>' + p + '/' + r.cost + '</div></div>' +
+      '<div class="act">' + btn + '</div></article>';
+  }).join('');
+}
+function renderHomeDyn() { if (S.home.counted) renderStats(1); renderHomeFilters(); renderHomeCards(); renderRewards(); }
+
+/* ---------- 搜尋 ---------- */
+function searchItems() {
+  var it = [];
+  mapIssues().forEach(function (i) { it.push({ area: 'map', title: i.title, sub: i.place, go: 'issue:' + i.id }); });
+  TASKS.forEach(function (t) { it.push({ area: 'tasks', title: t.title + (t.risk === 'high' ? '（已轉介）' : ''), sub: t.place, go: 'task:' + t.id }); });
+  TOPICS.forEach(function (t) { it.push({ area: 'voices', title: t.name, sub: '住戶議題 · 本月 ' + monthCount(t) + ' 則', go: 'topic:' + t.name }); });
+  BUILDINGS.forEach(function (b) { it.push({ area: 'voices', title: b.id + ' 棟住戶意見', sub: '最關心：' + b.top[0][0], go: 'bld:' + b.id }); });
+  CARDS.filter(function (c) { return c.cat !== '任務'; }).forEach(function (c) { it.push({ area: 'acts', title: c.title, sub: c.time + ' · ' + c.place, go: 'card:' + c.id }); });
+  REWARDS.forEach(function (r) { it.push({ area: 'rewards', title: r.name, sub: r.by + ' · ' + r.cost + ' 點', go: 'reward:' + r.id, kw: r.kw }); });
+  return it;
+}
+function runSearch(q) {
+  var ql = q.trim().toLowerCase(), hits = [];
+  if (!ql) return hits;
+  Object.keys(AREA).forEach(function (k) {
+    var a = AREA[k];
+    if ((a.name + ' ' + a.kw).toLowerCase().indexOf(ql) >= 0) hits.push({ area: k, title: '前往「' + a.name + '」', sub: a.desc, go: 'area:' + k });
+  });
+  searchItems().forEach(function (i) { if ((i.title + ' ' + (i.kw || '')).toLowerCase().indexOf(ql) >= 0) hits.push(i); });
+  return hits;
+}
+function markHit(text, q) {
+  var t = q.trim(), i = text.toLowerCase().indexOf(t.toLowerCase());
+  if (!t || i < 0) return esc(text);
+  return esc(text.slice(0, i)) + '<mark>' + esc(text.slice(i, i + t.length)) + '</mark>' + esc(text.slice(i + t.length));
+}
+function renderSearch() {
+  var q = $('#q').value, box = $('#sres');
+  if (!q.trim()) { box.hidden = true; box.innerHTML = ''; return; }
+  var hits = runSearch(q);
+  if (!hits.length) box.innerHTML = '<p class="sempty" role="status">找不到「' + esc(q.trim()) + '」。可以搜尋社區地圖、任務板、各棟民意、活動、積分兌換裡的標題。</p>';
+  else {
+    var html = '<p class="cnt" role="status">找到 ' + hits.length + ' 筆</p>';
+    Object.keys(AREA).forEach(function (k) {
+      var list = hits.filter(function (h) { return h.area === k; }).slice(0, 3);
+      if (!list.length) return;
+      html += '<div class="grp"><span class="area-pill" style="background:' + AREA[k].color + '">' + AREA[k].name + '</span></div>' + list.map(function (h) {
+        return '<button type="button" class="sitem" data-a="sgo" data-v="' + esc(h.go) + '"><span class="tx">' + markHit(h.title, q) + '<small>' + esc(h.sub) + '</small></span>' + ic('right', 18, '#9AA59D') + '</button>';
+      }).join('');
+    });
+    box.innerHTML = html;
+  }
+  box.hidden = false;
+}
+function homeScroll(el, flashEl) {
+  var sc = $('#s-home');
+  sc.scrollTo({ top: el.offsetTop - 70, behavior: RM ? 'auto' : 'smooth' });
+  if (flashEl) setTimeout(function () { flashEl.classList.remove('flash'); void flashEl.offsetWidth; flashEl.classList.add('flash'); }, 450);
+}
+function goRewards(id) {
+  if (S.tab !== 'home' || S.me) go('home');
+  if (S.sheet) closeSheet(true);
+  renderRewards();
+  homeScroll($('#rewardsSec'), id ? $('#rw-' + id) : null);
+}
+function goActs(cat, id) {
+  if (S.tab !== 'home' || S.me) go('home');
+  if (S.sheet) closeSheet(true);
+  S.home.filter = cat || '活動'; renderHomeFilters(); renderHomeCards();
+  var row = $('#homeCards'), card = id ? $('#hc-' + id) : null;
+  row.scrollLeft = card ? card.offsetLeft - 16 : 0;
+  homeScroll($('#actsSec'), card);
+}
+function searchGo(goTo) {
+  $('#sres').hidden = true; $('#q').blur();
+  var i = goTo.indexOf(':'), kind = goTo.slice(0, i), v = goTo.slice(i + 1);
+  if (kind === 'area') { if (v === 'acts') goActs('活動'); else if (v === 'rewards') goRewards(); else go(v); }
+  if (kind === 'issue') openTarget('issue:' + v);
+  if (kind === 'task') { go('tasks'); openSheet({ type: 'task', id: v }); }
+  if (kind === 'topic') { go('voices'); S.voices.view = 'talk'; renderVoicesDyn(); openSheet({ type: 'topic', id: v }); }
+  if (kind === 'bld') ACT.vGo(v);
+  if (kind === 'card') { var c = CARDS.filter(function (x) { return x.id === v; })[0]; goActs(c.cat, v); }
+  if (kind === 'reward') goRewards(v);
+}
 
 /* ============ 社區地圖 ============ */
 function renderMapChips() {
@@ -1199,6 +1729,15 @@ function renderMapChips() {
     return '<button class="chip" data-a="layer" data-v="' + d[0] + '" aria-pressed="' + on + '" style="border-color:' + d[3] + ';background:' + (on ? d[3] : '#fff') + ';color:' + (on ? '#fff' : '#1B2B24') + ';display:flex;align-items:center;gap:6px">' +
       '<span class="dot" style="background:' + (on ? '#fff' : d[3]) + '"></span>' + d[1] + '<span style="font-weight:500;font-size:13px">' + d[2] + '</span></button>';
   }).join('');
+}
+/* 水滴形定位針：圓心 (22,20)、尖端 (22,53)，中間白圓裡是狀態色的驚嘆號 */
+var PIN_D = 'M22 53 L6.9 29.8 A18 18 0 1 1 37.1 29.8 Z';
+function pinSvg(color, on) {
+  return '<svg width="44" height="56" viewBox="0 0 44 56" aria-hidden="true">' +
+    (on ? '<path d="' + PIN_D + '" fill="none" stroke="' + color + '" stroke-width="11" stroke-linejoin="round" opacity=".35"/>' : '') +
+    '<path d="' + PIN_D + '" fill="' + color + '" stroke="#FFFDF8" stroke-width="3" stroke-linejoin="round"/>' +
+    '<circle cx="22" cy="20" r="10.5" fill="#fff"/>' +
+    '<path d="M22 14.2v6.8M22 25.4h.01" stroke="' + color + '" stroke-width="3.2" stroke-linecap="round" fill="none"/></svg>';
 }
 function renderMapLayers() {
   var L = S.map.layers, sel = mapSel(), h = '';
@@ -1215,9 +1754,9 @@ function renderMapLayers() {
   if (L.issue) mapIssues().forEach(function (it) {
     var st = ST[it.status], on = sel.type === 'issue' && sel.id === it.id;
     var t = it.task ? byTask(it.task) : null, reward = t && !stage(t.id) && it.status !== 'done';
-    h += '<button class="pin" data-a="sel" data-v="issue:' + it.id + '" aria-label="' + esc(it.title) + '，' + st.label + '" style="left:' + (it.x - 22) + 'px;top:' + (it.y - 22) + 'px;background:' + st.color + ';box-shadow:' + ring(on, st.color) + '">' + ic('excl', 20, '#fff', 3) +
-      (reward ? '<span class="pbadge" style="top:-10px;right:-16px;background:#FFFDF8;color:#8A3F12;border:1px solid #B4541A">+' + t.reward + '</span>' : '') + '</button>';
-    if (L.repair && it.progress > 0) h += '<div class="pbar" aria-hidden="true" style="left:' + (it.x - 22) + 'px;top:' + (it.y + 26) + 'px"><div style="height:7px;width:' + it.progress + '%;background:' + st.color + '"></div></div>';
+    h += '<button class="ipin" data-a="sel" data-v="issue:' + it.id + '" aria-label="' + esc(it.title) + '，' + st.label + '" style="left:' + (it.x - 22) + 'px;top:' + (it.y - 38) + 'px">' + pinSvg(st.color, on) +
+      (reward ? '<span class="pbadge" style="top:-6px;right:-18px;background:#FFFDF8;color:#8A3F12;border:1px solid #B4541A">+' + t.reward + '</span>' : '') + '</button>';
+    if (L.repair && it.progress > 0) h += '<div class="pbar" aria-hidden="true" style="left:' + (it.x - 22) + 'px;top:' + (it.y + 22) + 'px"><div style="height:7px;width:' + it.progress + '%;background:' + st.color + '"></div></div>';
   });
   $('#mLayers').innerHTML = h;
   updateWorkers();
@@ -1237,18 +1776,60 @@ function updateWorkers() {
     el.querySelector('button').style.boxShadow = ring(sel.type === 'worker' && sel.id === w.id, '#1B3A2F');
   });
 }
-function applyFit() {
-  var v = $('#mapView'), m = $('#mMap'), b = $('#fitBtn');
-  v.classList.toggle('fit', S.map.fit);
-  m.style.zoom = S.map.fit ? ((v.clientWidth || 356) / 760) : '';
-  b.innerHTML = S.map.fit ? ic('expand', 18, '#1E4D2B', 2.2) + '放大' : ic('shrink', 18, '#1E4D2B', 2.2) + '全覽';
-  b.setAttribute('aria-label', S.map.fit ? '放大地圖，可拖曳查看' : '縮小顯示整張地圖');
+/* ---------- 地圖縮放：雙指縮放、觸控板捏合、全覽／放大按鈕 ---------- */
+var MAP_W = 760, MAP_H = 520, MAP_MAX = 1.8, MAP_VIEW_H = 380;
+function isDk() { return document.documentElement.classList.contains('dk'); }
+function mapMin() { return ($('#mapView').clientWidth || 352) / MAP_W; }
+// 以畫面上的 (ax, ay) 為中心縮放，讓手指下的位置維持不動。
+function setMapScale(s, ax, ay) {
+  var v = $('#mapView'), m = $('#mMap');
+  if (isDk()) { m.style.zoom = ''; v.style.height = ''; return; }
+  var min = mapMin(), old = S.map.scale || 1;
+  s = Math.max(min, Math.min(MAP_MAX, s));
+  if (ax == null) { ax = v.clientWidth / 2; ay = v.clientHeight / 2; }
+  var cx = (v.scrollLeft + ax) / old, cy = (v.scrollTop + ay) / old;
+  S.map.scale = s;
+  m.style.zoom = s;
+  v.style.height = Math.min(MAP_VIEW_H, Math.round(MAP_H * s)) + 'px';
+  v.scrollLeft = cx * s - ax; v.scrollTop = cy * s - ay;
+  var b = $('#fitBtn'), full = s <= min + 0.02;
+  $('#dragHint').hidden = full;
+  b.innerHTML = full ? ic('expand', 18, '#1E4D2B', 2.2) + '放大' : ic('shrink', 18, '#1E4D2B', 2.2) + '全覽';
+  b.setAttribute('aria-label', full ? '放大地圖' : '縮小顯示整張地圖');
 }
+function applyFit() { setMapScale(S.map.scale || 0.75); }
 function focusPin(x, y) {
-  if (S.map.fit) return;
-  var v = $('#mapView');
-  v.scrollTo({ left: x - v.clientWidth / 2, top: y - v.clientHeight / 2, behavior: RM ? 'auto' : 'smooth' });
+  if (isDk()) return;
+  var v = $('#mapView'), s = S.map.scale || 1;
+  v.scrollTo({ left: x * s - v.clientWidth / 2, top: y * s - v.clientHeight / 2, behavior: RM ? 'auto' : 'smooth' });
 }
+(function () {
+  var v = $('#mapView'), pinch = null;
+  var mid = function (t) {
+    var r = v.getBoundingClientRect(), z = parseFloat($('#device').style.zoom) || 1;
+    return [((t[0].clientX + t[1].clientX) / 2 - r.left) / z, ((t[0].clientY + t[1].clientY) / 2 - r.top) / z];
+  };
+  var dist = function (t) { return Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY); };
+  v.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 2) { pinch = { d: dist(e.touches), s: S.map.scale || 1 }; e.preventDefault(); }
+  }, { passive: false });
+  v.addEventListener('touchmove', function (e) {
+    if (!pinch || e.touches.length !== 2) return;
+    e.preventDefault();
+    var m = mid(e.touches);
+    setMapScale(pinch.s * dist(e.touches) / pinch.d, m[0], m[1]);
+  }, { passive: false });
+  v.addEventListener('touchend', function (e) { if (e.touches.length < 2) pinch = null; });
+  // iPhone Safari：避免雙指時整個網頁一起放大。
+  ['gesturestart', 'gesturechange'].forEach(function (n) { v.addEventListener(n, function (e) { e.preventDefault(); }); });
+  // 電腦觸控板捏合（瀏覽器會送出按住 Ctrl 的滾輪事件）。
+  v.addEventListener('wheel', function (e) {
+    if (!e.ctrlKey || isDk()) return;
+    e.preventDefault();
+    var r = v.getBoundingClientRect(), z = parseFloat($('#device').style.zoom) || 1;
+    setMapScale((S.map.scale || 1) * Math.exp(-e.deltaY * 0.01), (e.clientX - r.left) / z, (e.clientY - r.top) / z);
+  }, { passive: false });
+})();
 function renderMapDyn() {
   renderMapChips(); renderMapLayers();
   var list = mapIssues();
@@ -1447,8 +2028,7 @@ function renderMe() {
     '<section class="card"><h2 class="h2s hn">我的 Impact CV</h2>' + cvHtml() + '</section>' +
     '<section class="card"><h2 class="h2s hn">進行中的任務' + (a ? '（' + a + '）' : '') + '</h2>' + activeHtml() + '</section>' +
     '<section class="card rule">' + RULE_HTML + '</section>' +
-    '<div class="menu"><button data-a="soon" data-v="積分兌換">' + ic('gift', 22, '#7A52A8') + '積分兌換<span class="chev">' + ic('right', 18) + '</span></button>' +
-    '<a href="index.html">' + ic('laptop', 22, '#2F7D3B') + '打開電腦版<span class="chev">' + ic('right', 18) + '</span></a>' +
+    '<div class="menu"><button data-a="goRewards">' + ic('gift', 22, '#7A52A8') + '積分兌換<span class="chev">' + ic('right', 18) + '</span></button>' +
     '<button class="danger" data-a="reset">' + ic('reset', 22, '#A63B22') + '<span id="resetLabel">重設示範資料</span></button></div>' +
     '<p class="foot-note" style="padding-top:4px">操作紀錄只存在這台裝置的瀏覽器，和電腦版共用積分。</p>';
 }
@@ -1533,13 +2113,8 @@ function submitSay() {
   toast('已送出！+10 點，管委會會看到你的意見');
 }
 function searchFor(q) {
-  q = q.trim();
-  var rules = [[/路燈|照明|暗/, 'issue:i1'], [/電梯/, 'issue:i3'], [/市集|二手/, 'task:t9'], [/手機|教學|小老師/, 'task:t10'], [/搬|重物|李奶奶/, 'task:t1'], [/落葉|掃/, 'task:t2']];
-  for (var i = 0; i < rules.length; i++) if (rules[i][0].test(q)) { openTarget(rules[i][1]); return; }
-  if (/志工|任務|幫忙/.test(q)) { go('tasks'); return; }
-  if (/民意|投票|意見|發言/.test(q)) { go('voices'); return; }
-  if (/地圖|修繕|工程/.test(q)) { go('map'); return; }
-  toast(q ? '（示意）找不到「' + q + '」，試試：路燈、市集、志工' : '輸入想找的事，例如：路燈、市集、志工');
+  var hits = runSearch(q);
+  if (hits.length) searchGo(hits[0].go); else renderSearch();
 }
 var resetArm = false;
 var ACT = {
@@ -1547,9 +2122,25 @@ var ACT = {
   me: openMe, meClose: closeMe,
   close: function () { closeSheet(); },
   soon: function (v) { toast('「' + v + '」分頁製作中，敬請期待'); },
-  report: function () { S.rep = { what: null, where: null, urgent: null }; openSheet({ type: 'report' }); },
+  hot: function (v) { $('#q').value = v; renderSearch(); },
+  sgo: function (v) { searchGo(v); },
+  goRewards: function () { goRewards(); },
+  goActs: function () { goActs('活動'); },
+  rwOpen: function (v) { openSheet({ type: 'reward', id: v }); },
+  rwConfirm: function (v) {
+    var r = reward(v);
+    if (S.redeemed[v] || points() < r.cost) return;
+    S.redeemed[v] = 'R' + Math.random().toString(36).slice(2, 6).toUpperCase();
+    sset('redeemed', S.redeemed);
+    addPoints(-r.cost);
+    renderSheet(); refresh();
+    toast('兌換成功！到管理室出示兌換碼');
+  },
+  report: function () { stopVoice(); S.rep = newRep(); openSheet({ type: 'report' }); },
+  voice: function () { if (recog) stopVoice(); else startVoice(); },
+  vtry: function (v) { stopVoice(); applyVoice(v); },
   repOpt: function (v) {
-    var p = v.split('|'); S.rep[p[0]] = p[1]; renderSheet();
+    var p = v.split('|'); S.rep[p[0]] = p[1]; delete S.rep.auto[p[0]]; renderSheet();
     var el = $$('#sheetIn [data-a="repOpt"]').filter(function (x) { return x.dataset.v === v; })[0]; if (el) el.focus({ preventScroll: true });
   },
   repSubmit: submitReport,
@@ -1572,7 +2163,9 @@ var ACT = {
     if (S.tab !== 'map') { openTarget(v); return; }
     openSheet({ type: p[0], id: p[1] });
   },
-  mapFit: function () { S.map.fit = !S.map.fit; applyFit(); },
+  mapFit: function () { setMapScale((S.map.scale || 1) <= mapMin() + 0.02 ? 1 : mapMin()); },
+  pvOn: function () { S.pv = true; sset('m.pv', true); applyMode(); },
+  pvOff: function () { S.pv = false; sset('m.pv', false); applyMode(); },
   tSeg: function (v) { S.tasks.seg = v; renderTasksDyn(); },
   tTime: function (v) { S.tasks.time = +v; renderTasksDyn(); },
   tCat: function (v) { S.tasks.cat = v; renderTasksDyn(); },
@@ -1646,25 +2239,40 @@ document.addEventListener('change', function (ev) {
     $('#sheetIn [data-v="confirm"]').disabled = !$$('#sheetIn [data-check]').every(function (b) { return b.checked; });
   }
 });
-document.addEventListener('input', function (ev) { if (ev.target.id === 'sayText') $('#sayCount').textContent = ev.target.value.length; });
+document.addEventListener('input', function (ev) {
+  if (ev.target.id === 'sayText') $('#sayCount').textContent = ev.target.value.length;
+  if (ev.target.id === 'q') renderSearch();
+});
 document.addEventListener('submit', function (ev) {
   if (ev.target.id === 'sayForm') { ev.preventDefault(); submitSay(); }
+  if (ev.target.id === 'vtypeForm') { ev.preventDefault(); var vt = $('#vtext').value.trim(); $('#vtext').blur(); if (vt) { stopVoice(); applyVoice(vt); } }
   if (ev.target.id === 'searchForm') { ev.preventDefault(); $('#q').blur(); searchFor($('#q').value); }
 });
 window.addEventListener('storage', function (ev) {
   // 另一個分頁（例如電腦版）改了積分或任務時同步。
   if (!ev.key || ev.key.indexOf(PREFIX) !== 0) return;
-  S.bonus = sget('bonusPoints', 0); S.stages = sget('taskStages', {}); S.vAdded = sget('voicesAdded', []); S.vPlus = sget('voicesPlus', {}); S.vVotes = sget('voicesVotes', {});
+  S.bonus = sget('bonusPoints', 0); S.stages = sget('taskStages', {}); S.vAdded = sget('voicesAdded', []); S.vPlus = sget('voicesPlus', {}); S.vVotes = sget('voicesVotes', {}); S.redeemed = sget('redeemed', {});
   refresh();
 });
 
 /* ============ 外框縮放與時鐘 ============ */
-function fitDevice() {
+// 版面模式：寬度 ≥ 900 顯示電腦版；按「手機預覽」改用 iPhone 外框；其餘為手機版。
+function applyMode() {
+  var w = window.innerWidth, html = document.documentElement;
+  var pv = S.pv && w >= 760, dk = w >= 900 && !pv;
+  html.classList.toggle('pv', pv);
+  html.classList.toggle('dk', dk);
   var d = $('#device');
-  if (window.innerWidth >= 760) { var s = Math.min(1, (window.innerHeight - 32) / 868); d.style.zoom = s < 1 ? s.toFixed(3) : ''; }
+  if (pv) { var s = Math.min(1, (window.innerHeight - 32) / 868); d.style.zoom = s < 1 ? s.toFixed(3) : ''; }
   else d.style.zoom = '';
-  if (S.map.fit) applyFit();
+  // 首頁插畫：手機裁中間那段，電腦顯示整片社區。
+  $('.scene').setAttribute('viewBox', dk ? '0 290 1440 310' : '470 300 620 300');
+  if (S.sheet) closeSheet(true);
+  if (!dk) { S.map.init = false; if (S.tab === 'map') go('map'); }
+  setMapScale(S.map.scale || 0.75);
+  renderTabbar();
 }
+var fitDevice = applyMode;
 function clock() {
   var n = new Date(), p = function (x) { return String(x).padStart(2, '0'); };
   $('#sbClock').textContent = n.getHours() + ':' + p(n.getMinutes());
@@ -1672,13 +2280,25 @@ function clock() {
 }
 
 /* ============ 啟動 ============ */
-fitDevice();
-window.addEventListener('resize', fitDevice);
-buildHome(); buildWorkers(); renderIso(); applyFit(); clock();
+buildHome(); buildWorkers(); renderIso(); clock();
+applyMode();
+var resizeT;
+window.addEventListener('resize', function () {
+  // 只在跨越版面模式時重排，避免手機捲動時網址列伸縮造成閃動。
+  clearTimeout(resizeT);
+  resizeT = setTimeout(function () {
+    var before = document.documentElement.className;
+    var w = window.innerWidth, pv = S.pv && w >= 760, dk = w >= 900 && !pv;
+    if (before.indexOf('dk') >= 0 !== dk || before.indexOf('pv') >= 0 !== pv) applyMode();
+    else if (pv) { var s = Math.min(1, (window.innerHeight - 32) / 868); $('#device').style.zoom = s < 1 ? s.toFixed(3) : ''; }
+  }, 120);
+});
 refresh();
 var start = location.hash.slice(1);
 go(SCREENS.indexOf(start) >= 0 ? start : 'home');
 if (start === 'me') openMe();
+if (start === 'rewards') goRewards();
+if (start === 'acts') goActs('活動');
 TASKS.forEach(function (t) { if (stage(t.id) === 'after') setTimeout(function () { settle(t.id); }, 1800); });
 // 棟別按鈕在畫面上時，先收起浮動的「我要發言」，避免擋住按鈕。
 if ('IntersectionObserver' in window) {
